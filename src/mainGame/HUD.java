@@ -23,7 +23,7 @@ public class HUD {
 
 	private boolean regen = false;
 	private int timer = 60;
-	private int healthBarWidth = 400;
+	private int healthBarWidth = 600;
 	private int healthBarModifier = 2;
 	private boolean doubleHealth = false;
 	private String ability = "";
@@ -55,17 +55,17 @@ public class HUD {
 		Font font = new Font("Amoebic", 1, 30);
 
 		g.setColor(Color.GRAY);
-		g.fillRect(15, 15, healthBarWidth, 64);
+		g.fillRect(15, 15, healthBarWidth, 96);
 		g.setColor(new Color(75, (int) greenValue, 0));
-		g.fillRect((int) 15, (int) 15, (int) health * 4, 64);
+		g.fillRect((int) 15, (int) 15, (int) health * 6, 96);
 		g.setColor(scoreColor);
-		g.drawRect(15, 15, healthBarWidth, 64);
+		g.drawRect(15, 15, healthBarWidth, 96);
 
 		g.setFont(font);
 
-		g.drawString("Score: " + score, 15, 115);
-		g.drawString("Level: " + level, 15, 150);
-		g.drawString("Extra Lives: " + extraLives, 15, 185);
+		g.drawString("Score: " + score, 15, 150);
+		g.drawString("Level: " + level, 15, 185);
+		g.drawString("Extra Lives: " + extraLives, 15, 220);
 
 		if (ability.equals("freezeTime")) {
 			g.drawString("Time Freezes: " + abilityUses, Game.WIDTH - 300, 64);
