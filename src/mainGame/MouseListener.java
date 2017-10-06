@@ -121,7 +121,7 @@ public class MouseListener extends MouseAdapter {
 
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
-			if (mouseOver(mx, my, 850, 300, 200, 64)) {
+			if (mouseOver(mx, my, 500, 315, 200, 50)) {
 				game.gameState = STATE.Menu;
 				return;
 			}
