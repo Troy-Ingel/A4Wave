@@ -82,75 +82,59 @@ public class Menu {
 		if (game.gameState == STATE.Menu) {
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
 			handler.render(g);
-			Font font = new Font("Amoebic", 1, 100);
-			Font font2 = new Font("Amoebic", 1, 60);
+			Font font = new Font("Amoebic", 1, 50);
+			// J fixed the HUD on the menu
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Game Modes", 1140, 100);
+			g.drawString("Loehle's Wave Game", 75, 75);
 
+			g.setColor(Color.white);
+			g.drawRect(80, 105, 1090, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Loehle's Sandbox", 75, 100);
+			g.drawString("Play", 550, 175);
 
 			g.setColor(Color.white);
-			g.drawRect(990, 135, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Waves", 1110, 215);
-
-			g.setColor(Color.white);
-			g.drawRect(1440, 135, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Bosses", 1550, 215);
-
-			g.setColor(Color.white);
-			g.drawRect(990, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Attack", 1095, 665);
-
-			g.setColor(Color.white);
-			g.drawRect(1440, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Hunger", 1550, 665);
-
-			g.setColor(Color.white);
-			g.drawRect(80, 135, 850, 250);
+			g.drawRect(80, 255, 1090, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 400, 280);
+			g.drawString("Help", 550, 325);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 435, 850, 250);
+			g.drawRect(80, 405, 1090, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Credits", 340, 600);
-
+			g.drawString("Credits", 520, 475);
+			
 			g.setColor(Color.white);
-			g.drawRect(80, 735, 850, 250);
+			g.drawRect(80, 555, 1090, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Quit", 400, 900);
+			g.drawString("Quit", 550, 625);
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on "help"
 			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			Font font2 = new Font("impact", 1, 25);
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 900, 70);
+			g.drawString("Help", 550, 75);
 
 			g.setFont(font2);
-			g.drawString("Waves: Simply use WASD to avoid enemies. Once you avoid" + " \n"
-					+ "them long enough, a new batch will spawn in! Defeat each boss to win!", 40, 200);
+			g.drawString("Use WASD to avoid enemies. Avoid enemies long enough to rack up points and advance to the"
+					+ " next level!", 90, 150);
+			g.drawString("Defeat the boss on Level 11 to win an upgrade!", 390, 200);
+			g.drawString("Ability upgrades are used by pressing Enter.",400, 250);
+			
+			//g.drawString("Waves: Simply use WASD to avoid enemies. Once you avoid" + " \n"
+					//+ "them long enough, a new batch will spawn in!"
+					//+ "Defeat each boss to win!", 40, 200);
 
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawRect(850, 300, 200, 64);
-			g.drawString("Back", 920, 340);
+			g.drawRect(500, 315, 200, 50);
+			g.drawString("Back", 575, 350);
 		}
 
 	}
