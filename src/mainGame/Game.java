@@ -16,7 +16,8 @@ public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final int WIDTH = 1920, HEIGHT = 1080;
+	public static final int WIDTH = 1250, HEIGHT = 700;
+	// J set to W1250, H700 (baby computer screen size) for HUD fix
 	private Thread thread;
 	private boolean running = false;
 
@@ -97,10 +98,12 @@ public class Game extends Canvas implements Runnable {
 			delta += (now - lastTime) / ns;
 			lastTime = now;
 			while (delta >= 1) {
+				// move render here for guaranteed 60FPS
 				tick();// 60 times a second, objects are being updated
 				delta--;
 			}
 			if (running)
+				// leaving render here gives a smoother look
 				render();// 60 times a second, objects are being drawn
 			frames++;
 
@@ -156,6 +159,7 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
+		// buffering prevents screen tearing
 
 		///////// Draw things bellow this/////////////
 
