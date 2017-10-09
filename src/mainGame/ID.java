@@ -1,7 +1,7 @@
 package mainGame;
 
 /**
- * Used to easily identify each game entity
+ * Used to easily identify each game entityyyy
  * @author Brandon Loehle
  * 5/30/16
  */
