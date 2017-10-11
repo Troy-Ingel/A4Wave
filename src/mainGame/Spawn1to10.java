@@ -6,7 +6,7 @@ import java.util.Random;
 import mainGame.Game.STATE;
 
 /**
- * Contains the programming of levels 1-10, as well as handles level progressionn
+ * Contains the programming of levels 1-10, as well as handles level progressionnnnnnn
  * 
  * @author Brandon Loehle 5/30/16
  */

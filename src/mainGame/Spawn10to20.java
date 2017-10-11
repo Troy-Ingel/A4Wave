@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * This class closely resembles Spawn1to10. Please refer to that class for
- * documentationn
+ * documentationnnnn
  * 
  * @author Brandon Loehle 5/30/16
  *
