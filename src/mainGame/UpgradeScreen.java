@@ -24,6 +24,7 @@ import mainGame.Game.STATE;
  */
 
 public class UpgradeScreen {
+	// HUD fixed
 
 	private Game game;
 	private Handler handler;
@@ -57,10 +58,10 @@ public class UpgradeScreen {
 		g.setColor(Color.WHITE);
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font, text) / 2, 75);
 
-		// All pictures are 1721 x 174
-		g.drawImage(getImage(imagePaths.get(index1)), 250, 150, 750, 76, null);
-		g.drawImage(getImage(imagePaths.get(index2)), 250, 250, 750, 76, null);
-		g.drawImage(getImage(imagePaths.get(index3)), 250, 350, 750, 76, null);
+		// All pictures are 750 x 76
+		g.drawImage(getImage(imagePaths.get(index1)), Game.WIDTH/2 - 375, Game.HEIGHT / 4, 750, 76, null);
+		g.drawImage(getImage(imagePaths.get(index2)), Game.WIDTH/2 - 375, Game.HEIGHT / 2, 750, 76, null);
+		g.drawImage(getImage(imagePaths.get(index3)), Game.WIDTH/2 - 375, 3 * Game.HEIGHT / 4, 750, 76, null);
 
 	}
 
@@ -116,7 +117,8 @@ public class UpgradeScreen {
 	public Image getImage(String path) {
 		Image image = null;
 		try {
-			image = Toolkit.getDefaultToolkit().getImage(path);
+			URL imageURL = Game.class.getResource(path);
+			image = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

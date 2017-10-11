@@ -15,6 +15,7 @@ import mainGame.Game.STATE;
  */
 
 public class MouseListener extends MouseAdapter {
+	// HUD fixed
 
 	private Game game;
 	private Handler handler;
@@ -61,7 +62,7 @@ public class MouseListener extends MouseAdapter {
 		}
 
 		else if (game.gameState == STATE.Upgrade) {
-			if (mouseOver(mx, my, 250, 150, 750, 76)) {
+			if (mouseOver(mx, my, Game.WIDTH/2 - 375, Game.HEIGHT / 4, 750, 76)) {
 				upgradeText = upgradeScreen.getPath(1);
 
 				upgrades.activateUpgrade(upgradeText);
@@ -69,7 +70,7 @@ public class MouseListener extends MouseAdapter {
 				upgradeScreen.removeUpgradeOption(1);
 
 				game.gameState = STATE.Game;
-			} else if (mouseOver(mx, my, 250, 250, 750, 76)) {
+			} else if (mouseOver(mx, my, Game.WIDTH/2 - 375, Game.HEIGHT / 2, 750, 76)) {
 				upgradeText = upgradeScreen.getPath(2);
 
 				upgrades.activateUpgrade(upgradeText);
@@ -77,7 +78,7 @@ public class MouseListener extends MouseAdapter {
 				upgradeScreen.removeUpgradeOption(2);
 
 				game.gameState = STATE.Game;
-			} else if (mouseOver(mx, my, 250, 350, 750, 76)) {
+			} else if (mouseOver(mx, my, Game.WIDTH/2 - 375, 3 * Game.HEIGHT / 4, 750, 76)) {
 				upgradeText = upgradeScreen.getPath(3);
 
 				upgrades.activateUpgrade(upgradeText);
@@ -91,7 +92,7 @@ public class MouseListener extends MouseAdapter {
 
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
-			if (mouseOver(mx, my, 80, 105, 1090, 100)) {
+			if (mouseOver(mx, my, 100, Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
 				handler.object.clear();
 				game.gameState = STATE.Game;
 				handler.addObject(player);
@@ -100,12 +101,12 @@ public class MouseListener extends MouseAdapter {
 			}
 
 			// Help Button
-			else if (mouseOver(mx, my, 80, 255, 1090, 100)) {
+			else if (mouseOver(mx, my, 100, 2 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
 				game.gameState = STATE.Help;
 			}
 
 			// Credits
-			else if (mouseOver(mx, my, 80, 405, 1090, 100)) {
+			else if (mouseOver(mx, my, 100, 3 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
 				JOptionPane.showMessageDialog(game,
 						"Made by Brandon Loehle for his "
 								+ "final project in AP Computer Science senior year, 2015 - 2016."
@@ -114,14 +115,14 @@ public class MouseListener extends MouseAdapter {
 			}
 
 			// Quit Button
-			else if (mouseOver(mx, my, 80, 555, 1090, 100)) {
+			else if (mouseOver(mx, my, 100, 4 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
 				System.exit(1);
 			}
 		}
 
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
-			if (mouseOver(mx, my, 500, 315, 200, 50)) {
+			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 315, 100, 50)) {
 				game.gameState = STATE.Menu;
 				return;
 			}
