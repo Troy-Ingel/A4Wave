@@ -68,8 +68,7 @@ public class EnemyBoss extends GameObject {
 	public Image getImage(String path) {
 		Image image = null;
 		try {
-			URL imageURL = Game.class.getResource(path);
-			image = Toolkit.getDefaultToolkit().getImage(imageURL);
+			image = Toolkit.getDefaultToolkit().getImage(path);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
