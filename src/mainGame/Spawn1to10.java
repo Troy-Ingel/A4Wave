@@ -1,12 +1,13 @@
 package mainGame;
 
+import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.Random;
 
 import mainGame.Game.STATE;
 
 /**
- * Contains the programming of levels 1-10, as well as handles level
+ * Contains the programming of levels 1-10, as well as handles levell
  * progressionn
  * 
  * @author Brandon Loehle 5/30/16
@@ -500,6 +501,7 @@ public class Spawn1to10 {
 		levelTimer = 150;
 		levelsRemaining = 10;
 		list.getItem(0);
+		game.gameState = STATE.Menu;
 
 	}// end restart()
 
