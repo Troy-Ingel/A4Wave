@@ -473,6 +473,7 @@ public class Spawn1to10 {
 							handler.removeObject(tempObject);
 							LEVEL_SET++;
 							game.gameState = STATE.Upgrade;
+							levelNumber++;
 						} // end ifhandler.addObject(new LevelText(15, 600,
 							// "This is Level ", ID.Levels1to10Text));
 					} // end if
