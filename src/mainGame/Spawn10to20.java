@@ -356,7 +356,7 @@ public class Spawn10to20 {
 			}
 		}
 
-		else if (levelNumber == 101) {
+		else if (levelNumber == 11) {
 			if (tempCounter < 1) {
 				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 1));
 				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 2));
