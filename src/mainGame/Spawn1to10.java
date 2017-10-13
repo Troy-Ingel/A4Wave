@@ -2,6 +2,7 @@ package mainGame;
 
 import java.lang.Thread.State;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import mainGame.Game.STATE;
@@ -26,8 +27,8 @@ public class Spawn1to10 {
 	private String[] side = { "left", "right", "top", "bottom" };
 	// int[] arrlevels = new int [11] ;
 
-	UnorderedList list = new UnorderedList(10);
-	// ArrayList<Integer> levels = new ArrayList<Integer>(); // MAKE THIS AN
+	UnorderedList list = new UnorderedList(11);
+	ArrayList<Integer> levels = new ArrayList<Integer>(); // MAKE THIS AN
 	// ARRAY
 	// LIST SO I CAN
 	// REMOVE OBJECTS
@@ -52,7 +53,8 @@ public class Spawn1to10 {
 		addLevels();
 		list.getItem(0);
 		// index = r.nextInt(levelsRemaining);
-		levelNumber = 1;
+		levelNumber = 0;
+		list.display();
 
 	}// end of Spawn1to10
 
@@ -60,8 +62,10 @@ public class Spawn1to10 {
 	 * Pre-load every level
 	 */
 	public void addLevels() {
-		for (int i = 1; i <= 10; i++) {
+		for (int i = 1; i <= 11; i++) {
 			list.addItem(i);
+			// levels.add(i);
+
 		} // end for
 	}// end addLevels()
 
@@ -128,7 +132,7 @@ public class Spawn1to10 {
 				spawnTimer = 40;
 				tempCounter = 0;// reset tempCounter
 				if (levelsRemaining == 1) {// time for the boss!
-					levelNumber = 10;// arbitrary number for the boss level
+					levelNumber = 11;// arbitrary number for the boss level
 				} // end if
 				else {// not time for the boss, just go to the next level
 						// list.removeItem(0);
@@ -145,7 +149,7 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		else if (levelNumber == 2 && list.getItem(1) == 2) {
+		else if (levelNumber == 2) {
 			spawnTimer--;
 			levelTimer--;
 			handler.addObject(new LevelText(15, 600, "This is Level 2", ID.Levels1to10Text));
@@ -176,7 +180,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 10;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -189,7 +193,7 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		else if (levelNumber == 3 && list.getItem(2) == 3) {
+		else if (levelNumber == 3) {
 			spawnTimer--;
 			levelTimer--;
 			handler.addObject(new LevelText(15, 600, "This is Level 3", ID.Levels1to10Text));
@@ -208,7 +212,7 @@ public class Spawn1to10 {
 				spawnTimer = 10;
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -238,7 +242,7 @@ public class Spawn1to10 {
 				spawnTimer = 10;
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -270,7 +274,7 @@ public class Spawn1to10 {
 				spawnTimer = 10;
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -302,7 +306,7 @@ public class Spawn1to10 {
 				spawnTimer = 40;
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -346,7 +350,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -378,7 +382,7 @@ public class Spawn1to10 {
 				spawnTimer = 10;
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -407,7 +411,7 @@ public class Spawn1to10 {
 				spawnTimer = 10;
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -439,7 +443,7 @@ public class Spawn1to10 {
 				spawnTimer = 10;
 				tempCounter = 0;
 				if (levelsRemaining == 1) {
-					levelNumber = 101;
+					levelNumber = 11;
 				} // end if
 				else {
 					/*
@@ -453,10 +457,10 @@ public class Spawn1to10 {
 			} // end if
 		} // end else if
 
-		else if (levelNumber == 11 && list.getItem(10) == 11) {// arbitrary
-																// number for
-																// the boss
-			handler.addObject(new LevelText(15, 600, "This is Level 101", ID.Levels1to10Text));
+		else if (levelNumber == 11) {// arbitrary
+										// number for
+										// the boss
+			handler.addObject(new LevelText(15, 600, "This is Level 11", ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new EnemyBoss(ID.EnemyBoss, handler));
 				tempCounter++;
@@ -482,15 +486,15 @@ public class Spawn1to10 {
 	public void skipLevel() {
 		if (levelsRemaining == 1) {
 			tempCounter = 0;
-			levelNumber = 101;
+			levelNumber = 11;
 		} // end if
 		else if (levelsRemaining > 1) {
-
+			list.getItem(levelNumber + 1);
 			// levels.remove(index);
 			levelsRemaining--;
-			System.out.println(levelsRemaining);
-			tempCounter = 0;
-			index = r.nextInt(levelsRemaining);
+			// System.out.println(levelsRemaining);
+			// tempCounter = 0;
+			// index = r.nextInt(levelsRemaining);
 			// levelNumber = levels.get(index);
 		} // end else if
 	}// end skipLevel
