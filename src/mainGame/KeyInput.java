@@ -71,8 +71,9 @@ public class KeyInput extends KeyAdapter {
 					tempObject.setVelX(this.speed);
 					keyDown[3] = true;
 				}
-				if (key == KeyEvent.VK_SPACE) {
-					hud.resetHealth();
+				if (key == KeyEvent.VK_SPACE) { //comment the skip level out and reset health() back in 
+					upgrades.levelSkipAbility();
+					//hud.resetHealth();
 				//	Spawn1to10.LEVEL_SET = 10;
 				//	handler.clearEnemies();
 					//hud.setLevel(11);
