@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  * Main game class. This class is the driver class and it follows the Holder
- * pattern. It houses references to ALL of the components of the gamee
+ * pattern. It houses references to ALL of the components of the gameeee
  * 
  * @author Brandon Loehle 5/30/16
  */
