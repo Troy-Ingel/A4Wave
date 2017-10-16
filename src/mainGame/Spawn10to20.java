@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * This class closely resembles Spawn1to10. Please refer to that class for
- * documentation
+ * documentationn
  * 
  * @author Brandon Loehle 5/30/16
  *
@@ -92,10 +92,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 2) {
@@ -127,10 +128,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 3) {
@@ -153,10 +155,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 4) {
@@ -176,10 +179,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 5) {
@@ -202,10 +206,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 6) {
@@ -228,10 +233,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 7) {
@@ -263,10 +269,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 8) {
@@ -289,10 +296,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 9) {
@@ -312,10 +320,11 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		} else if (levelNumber == 10) {
@@ -338,15 +347,16 @@ public class Spawn10to20 {
 				if (randomMax == 1) {
 					levelNumber = 101;
 				} else {
-					levels.remove(index);
-					randomMax--;
-					index = r.nextInt(randomMax);
-					levelNumber = levels.get(index);
+					/*
+					 * levels.remove(index); randomMax--; index =
+					 * r.nextInt(randomMax); levelNumber = levels.get(index);
+					 */
+					levelNumber++;
 				}
 			}
 		}
 
-		else if (levelNumber == 101) {
+		else if (levelNumber == 11) {
 			if (tempCounter < 1) {
 				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 1));
 				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 2));
@@ -365,9 +375,11 @@ public class Spawn10to20 {
 		// else if(levelNumber){
 		// levelTimer --;
 		// if(tempCounter < 1){
-		// handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200,
+		// handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2
+		// - 200,
 		// "Same levels...", ID.Levels1to10Text));
-		// handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2,
+		// handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT /
+		// 2,
 		// "...but a little harder now", ID.Levels1to10Text));
 		// tempCounter++;
 		// }

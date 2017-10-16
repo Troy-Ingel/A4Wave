@@ -12,6 +12,7 @@ import java.awt.Graphics;
  */
 
 public class HUD {
+	// HUD fixed
 
 	public double health = 100;
 	private double healthMax = 100;
@@ -133,15 +134,15 @@ public class HUD {
 		healthMax = 200;
 		this.health = healthMax;
 		healthBarModifier = 1;
-		healthBarWidth = 800;
+		healthBarWidth = 1200;
 	}
 
 	public void resetHealth() {
 		doubleHealth = false;
 		healthMax = 100;
 		this.health = healthMax;
-		healthBarModifier = 2;
-		healthBarWidth = 400;
+		healthBarModifier = 1;
+		healthBarWidth = 600;
 	}
 
 	public void restoreHealth() {

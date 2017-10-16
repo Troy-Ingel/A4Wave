@@ -25,6 +25,7 @@ import mainGame.Game.STATE;
  */
 
 public class Menu {
+	// why isn't this coming up as a change?
 
 	private Game game;
 	private Handler handler;
@@ -35,6 +36,15 @@ public class Menu {
 	private ArrayList<Color> colorPick = new ArrayList<Color>();
 	private int colorIndex;
 	private Spawn1to10 spawner;
+	private String text1;
+	private String text2;
+	private String text3;
+	private String text4;
+	private String text5;
+	private String text6;
+	private String text7;
+	private String text8;
+	private String text9;
 
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		this.game = game;
@@ -87,31 +97,35 @@ public class Menu {
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Loehle's Wave Game", 75, 75);
+			g.drawString("Loehle's Wave Game", 100, 70);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 105, 1090, 100);
+			g.drawRect(100, Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Play", 550, 175);
+			text1 = "Play";
+			g.drawString(text1, Game.WIDTH / 2 - getTextWidth(font, text1) / 2, Game.HEIGHT / 5);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 255, 1090, 100);
+			g.drawRect(100, 2 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 550, 325);
+			text2 = "Help";
+			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, 2 * Game.HEIGHT / 5);
 
 			g.setColor(Color.white);
-			g.drawRect(80, 405, 1090, 100);
+			g.drawRect(100, 3 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Credits", 520, 475);
+			text3 = "Credits";
+			g.drawString(text3, Game.WIDTH / 2 - getTextWidth(font, text3) / 2, 3 * Game.HEIGHT / 5);
 			
 			g.setColor(Color.white);
-			g.drawRect(80, 555, 1090, 100);
+			g.drawRect(100, 4 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Quit", 550, 625);
+			text4 = "Quit";
+			g.drawString(text4, Game.WIDTH / 2 - getTextWidth(font, text4) / 2, 4 * Game.HEIGHT / 5);
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on "help"
 			Font font = new Font("impact", 1, 50);
@@ -119,13 +133,17 @@ public class Menu {
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 550, 75);
+			text5 = "Help";
+			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
 
 			g.setFont(font2);
-			g.drawString("Use WASD to avoid enemies. Avoid enemies long enough to rack up points and advance to the"
-					+ " next level!", 90, 150);
-			g.drawString("Defeat the boss on Level 11 to win an upgrade!", 390, 200);
-			g.drawString("Ability upgrades are used by pressing Enter.",400, 250);
+			text6 = "Use WASD to avoid enemies. Avoid enemies long enough to rack up points and advance to the"
+					+ " next level!";
+			g.drawString(text6, Game.WIDTH / 2 - getTextWidth(font2, text6) / 2, 150);
+			text7 = "Defeat the boss on Level 11 to win an upgrade!";
+			g.drawString(text7, Game.WIDTH / 2 - getTextWidth(font2, text7) / 2, 200);
+			text8 = "Ability upgrades are used by pressing Enter.";
+			g.drawString(text8, Game.WIDTH / 2 - getTextWidth(font2, text8) / 2, 250);
 			
 			//g.drawString("Waves: Simply use WASD to avoid enemies. Once you avoid" + " \n"
 					//+ "them long enough, a new batch will spawn in!"
@@ -133,10 +151,18 @@ public class Menu {
 
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawRect(500, 315, 200, 50);
-			g.drawString("Back", 575, 350);
+			text9 = "Back";
+			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
+			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
 		}
 
+	}
+	
+	public int getTextWidth(Font font, String text) {
+		AffineTransform at = new AffineTransform();
+		FontRenderContext frc = new FontRenderContext(at, true, true);
+		int textWidth = (int) (font.getStringBounds(text, frc).getWidth());
+		return textWidth;
 	}
 
 }
