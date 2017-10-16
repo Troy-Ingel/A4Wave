@@ -39,7 +39,11 @@ public class UnorderedList {
 	// Removes an element from the list
 	public void removeItem(int index) {
 		for (int i = index; i < numItems; i++) {
+<<<<<<< HEAD
 			levels[i] = levels[i + 1];
+=======
+			levels[i] = levels[i + index];
+>>>>>>> master
 
 		}
 		numItems--;

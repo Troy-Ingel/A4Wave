@@ -1,7 +1,7 @@
 package mainGame;
 
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.KeyEvent;import java.util.Arrays;
 
 import mainGame.Game.STATE;
 
@@ -23,6 +23,7 @@ public class KeyInput extends KeyAdapter {
 	private Spawn1to10 spawner;
 	private Upgrades upgrades;
 	private String ability;
+	// private UnorderedList list = new UnorderedList(10);
 
 	// uses current handler created in Game as parameter
 	public KeyInput(Handler handler, Game game, HUD hud, Player player, Spawn1to10 spawner, Upgrades upgrades) {
@@ -50,7 +51,9 @@ public class KeyInput extends KeyAdapter {
 			GameObject tempObject = handler.object.get(i);
 
 			// using only if's allows multiple keys to be triggered at once
-			if (tempObject.getId() == ID.Player) {// find the player object, as he is the only one the user can control
+			if (tempObject.getId() == ID.Player) {// find the player object, as
+													// he is the only one the
+													// user can control
 				// key events for player 1
 				if (key == KeyEvent.VK_W) {
 					tempObject.setVelY(-(this.speed));
@@ -68,8 +71,16 @@ public class KeyInput extends KeyAdapter {
 					tempObject.setVelX(this.speed);
 					keyDown[3] = true;
 				}
-				if (key == KeyEvent.VK_SPACE) {
+				if (key == KeyEvent.VK_SPACE) { //comment the skip level out and reset health() back in 
 					upgrades.levelSkipAbility();
+					//hud.resetHealth();
+				//	Spawn1to10.LEVEL_SET = 10;
+				//	handler.clearEnemies();
+					//hud.setLevel(11);
+					// Spawn1to10.LEVEL_SET = 11;
+					// upgrades.levelSkipAbility();
+					// hud.setLevel(11);
+				;
 				}
 				if (key == KeyEvent.VK_ENTER) {
 					ability = upgrades.getAbility();
