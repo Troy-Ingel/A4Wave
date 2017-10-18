@@ -141,7 +141,7 @@ public class HUD {
 		doubleHealth = false;
 		healthMax = 100;
 		this.health = healthMax;
-		healthBarModifier = 1;
+		healthBarModifier = 2;
 		healthBarWidth = 600;
 	}
 

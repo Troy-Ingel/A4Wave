@@ -96,6 +96,17 @@ public class Handler {
 			}
 		}
 	}
+	
+	public void clearText() {
+		// J's method that clears level transitions
+		for (int i = 0; i < this.object.size(); i++) {
+			GameObject tempObject = this.object.get(i);
+			if (tempObject.getId() == ID.Levels1to10Text) {
+				this.removeObject(tempObject);
+				i--;
+			}
+		}
+	}
 
 	/**
 	 * Clears all entities that have an ID of player
