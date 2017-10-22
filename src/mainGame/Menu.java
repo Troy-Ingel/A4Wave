@@ -45,6 +45,7 @@ public class Menu {
 	private String text7;
 	private String text8;
 	private String text9;
+	private String text10;
 
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		this.game = game;
@@ -97,7 +98,7 @@ public class Menu {
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Loehle's Wave Game", 100, 70);
+			g.drawString(" Wave Game", 100, 70);
 
 			g.setColor(Color.white);
 			g.drawRect(100, Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
@@ -114,12 +115,19 @@ public class Menu {
 			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, 2 * Game.HEIGHT / 5);
 
 			g.setColor(Color.white);
+			g.drawRect(1430, 25, 450, 70);
+			g.setFont(font);
+			g.setColor(Color.white);
+			text10 = "Leaderboards";
+			g.drawString(text10, 1500, 70);
+
+			g.setColor(Color.white);
 			g.drawRect(100, 3 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text3 = "Credits";
 			g.drawString(text3, Game.WIDTH / 2 - getTextWidth(font, text3) / 2, 3 * Game.HEIGHT / 5);
-			
+
 			g.setColor(Color.white);
 			g.drawRect(100, 4 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
@@ -127,7 +135,8 @@ public class Menu {
 			text4 = "Quit";
 			g.drawString(text4, Game.WIDTH / 2 - getTextWidth(font, text4) / 2, 4 * Game.HEIGHT / 5);
 
-		} else if (game.gameState == STATE.Help) {// if the user clicks on "help"
+		} else if (game.gameState == STATE.Help) {// if the user clicks on
+													// "help"
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 25);
 
@@ -137,17 +146,18 @@ public class Menu {
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
 
 			g.setFont(font2);
-			text6 = "Use WASD to avoid enemies. Avoid enemies long enough to rack up points and advance to the"
+			text6 = "Use arrow keys to avoid enemies. Avoid enemies long enough to rack up points and advance to the"
 					+ " next level!";
 			g.drawString(text6, Game.WIDTH / 2 - getTextWidth(font2, text6) / 2, 150);
 			text7 = "Defeat the boss on Level 11 to win an upgrade!";
 			g.drawString(text7, Game.WIDTH / 2 - getTextWidth(font2, text7) / 2, 200);
 			text8 = "Ability upgrades are used by pressing Enter.";
 			g.drawString(text8, Game.WIDTH / 2 - getTextWidth(font2, text8) / 2, 250);
-			
-			//g.drawString("Waves: Simply use WASD to avoid enemies. Once you avoid" + " \n"
-					//+ "them long enough, a new batch will spawn in!"
-					//+ "Defeat each boss to win!", 40, 200);
+
+			// g.drawString("Waves: Simply use WASD to avoid enemies. Once you
+			// avoid" + " \n"
+			// + "them long enough, a new batch will spawn in!"
+			// + "Defeat each boss to win!", 40, 200);
 
 			g.setFont(font2);
 			g.setColor(Color.white);
@@ -155,9 +165,18 @@ public class Menu {
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
 		}
+		else if(game.gameState == STATE.Leaderboard)
+		{
+			Font font = new Font("impact", 1, 50);
+			Font font2 = new Font("impact", 1, 25);
 
+			g.setFont(font);
+			g.setColor(Color.white);
+			text5 = "Help";
+			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
+		}
 	}
-	
+
 	public int getTextWidth(Font font, String text) {
 		AffineTransform at = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(at, true, true);
