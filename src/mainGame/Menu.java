@@ -98,42 +98,42 @@ public class Menu {
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString(" Wave Game", 100, 70);
+			g.drawString("Wave Game", 100, 50);
 
 			g.setColor(Color.white);
-			g.drawRect(100, Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
+			g.drawRect(100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text1 = "Play";
-			g.drawString(text1, Game.WIDTH / 2 - getTextWidth(font, text1) / 2, Game.HEIGHT / 5);
+			g.drawString(text1, Game.WIDTH / 2 - getTextWidth(font, text1) / 2, Game.HEIGHT / 6);
 
 			g.setColor(Color.white);
-			g.drawRect(100, 2 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
+			g.drawRect(100, Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text2 = "Help";
-			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, 2 * Game.HEIGHT / 5);
+			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, Game.HEIGHT / 3);
 
 			g.setColor(Color.white);
-			g.drawRect(1430, 25, 450, 70);
+			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
-			text10 = "Leaderboards";
-			g.drawString(text10, 1500, 70);
+			text10 = "Leaderboard";
+			g.drawString(text10, Game.WIDTH / 2 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
 
 			g.setColor(Color.white);
-			g.drawRect(100, 3 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
+			g.drawRect(100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text3 = "Credits";
-			g.drawString(text3, Game.WIDTH / 2 - getTextWidth(font, text3) / 2, 3 * Game.HEIGHT / 5);
+			g.drawString(text3, Game.WIDTH / 2 - getTextWidth(font, text3) / 2, 2 * Game.HEIGHT / 3);
 
 			g.setColor(Color.white);
-			g.drawRect(100, 4 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100);
+			g.drawRect(100, 5 * Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text4 = "Quit";
-			g.drawString(text4, Game.WIDTH / 2 - getTextWidth(font, text4) / 2, 4 * Game.HEIGHT / 5);
+			g.drawString(text4, Game.WIDTH / 2 - getTextWidth(font, text4) / 2, 5 * Game.HEIGHT / 6);
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on
 													// "help"
