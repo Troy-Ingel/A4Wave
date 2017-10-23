@@ -51,6 +51,7 @@ public class Game extends Canvas implements Runnable {
 
 	/**
 	 * Initialize the core mechanics of the game
+	 * Evan
 	 */
 	public Game() {
 		handler = new Handler();
