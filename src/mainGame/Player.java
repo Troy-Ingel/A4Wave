@@ -43,7 +43,7 @@ public class Player extends GameObject {
 		y = Game.clamp(y, 0, Game.HEIGHT - 60);
 
 		// add the trail that follows it
-		// EVAN CHANGES HEREE: removed code for player trail, kept still for enemy
+		// EVAN CHANGES HERE: removed code for player trail, kept still for enemy
 
 		collision();
 		checkIfDead();
