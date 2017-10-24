@@ -99,6 +99,10 @@ public class MouseListener extends MouseAdapter {
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
 			}
+			else if(mouseOver(mx,my,100,Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)){ //The leaderboard has been clicked 
+				System.out.println("Leaderboard Clicked?");
+				game.gameState = STATE.Leaderboard;
+			}
 
 			// Help Button
 			else if (mouseOver(mx, my, 100, Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
