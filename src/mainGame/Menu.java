@@ -46,8 +46,10 @@ public class Menu {
 	private String text8;
 	private String text9;
 	private String text10;
+	//public Leaderboard lb;
 
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
+		
 		this.game = game;
 		this.handler = handler;
 		this.hud = hud;
@@ -164,16 +166,15 @@ public class Menu {
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
-		}
-		else if(game.gameState == STATE.Leaderboard)
-		{
+		} else if (game.gameState == STATE.Leaderboard) {
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 25);
-
+		//	lb.Display();
 			g.setFont(font);
 			g.setColor(Color.white);
 			text5 = "Help";
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
+
 		}
 	}
 

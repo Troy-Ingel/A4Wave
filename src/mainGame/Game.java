@@ -239,8 +239,11 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public static void main(String[] args) {
-
+		//HighscoreManager hm = new HighscoreManager();
 		new Game();
+		
+
+		
 	}
 
 }

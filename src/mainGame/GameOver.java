@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.AffineTransform;
 
+import mainGame.Game.STATE;
+
 /**
  * The game over screen
  * 
@@ -21,6 +23,7 @@ public class GameOver {
 	private int timer;
 	private Color retryColor;
 	private String text;
+	public Leaderboard lb;
 
 	public GameOver(Game game, Handler handler, HUD hud) {
 		this.game = game;
@@ -37,6 +40,7 @@ public class GameOver {
 	}
 
 	public void render(Graphics g) {
+		HighscoreManager hm = new HighscoreManager();
 		Font font = new Font("Amoebic", 1, 100);
 		Font font2 = new Font("Amoebic", 1, 60);
 		g.setFont(font);
@@ -51,8 +55,11 @@ public class GameOver {
 		g.setFont(font2);
 		text = "Click anywhere to play again!";
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 + 150);
-
+		//lb.setScore(0, hud.getScore());
+		//hm.addScore("Michael Woo", hud.getScore());
+		
 	}
+	
 
 	public void flash() {
 		timer--;
