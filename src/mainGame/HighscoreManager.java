@@ -1,5 +1,6 @@
 package mainGame;
 
+
 import java.util.*;
 import java.io.*;
 
@@ -81,7 +82,7 @@ public class HighscoreManager {
 
 	public String getHighscoreString() {
 		String highscoreString = "";
-		int max = 3;
+		int max = 5;
 
 		ArrayList<Score> scores;
 		scores = getScores();
@@ -93,7 +94,7 @@ public class HighscoreManager {
 		}
 		while (i < x) {
 			
-			highscoreString += (i + 1) + ".\t" + scores.get(i).getName() + "\t\t" + scores.get(i).getScore() + "\n";
+			highscoreString += (i + 1) + ".\t" + scores.get(i).getNaam() + "\t\t" + scores.get(i).getScore() + "\n";
 			i++;
 		}
 		return highscoreString;

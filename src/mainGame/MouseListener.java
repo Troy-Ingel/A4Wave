@@ -26,7 +26,7 @@ public class MouseListener extends MouseAdapter {
 	private Upgrades upgrades;
 	private Player player;
 	private String upgradeText;
-	//public Leaderboard lb;
+	// public Leaderboard lb;
 
 	public MouseListener(Game game, Handler handler, HUD hud, Spawn1to10 spawner, Spawn10to20 spawner2,
 			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades) {
@@ -45,19 +45,20 @@ public class MouseListener extends MouseAdapter {
 		int my = e.getY();
 
 		if (game.gameState == STATE.GameOver) {
+			handler.clearEnemies();
 			handler.object.clear();
-		//	upgrades.resetUpgrades();
-		//	hud.health = 100;
-			//hud.setScore(0);
-			//hud.setLevel(1);
-			//spawner.restart();
-			//spawner.addLevels();
-		//	spawner2.restart();
-		//	spawner2.addLevels();
-		//s	Spawn1to10.LEVEL_SET = 1;
+			// upgrades.resetUpgrades();
+			// hud.health = 100;
+			// hud.setScore(0);
+			// hud.setLevel(1);
+			// spawner.restart();
+			// spawner.addLevels();
+			// spawner2.restart();
+			// spawner2.addLevels();
+			// s Spawn1to10.LEVEL_SET = 1;
 			HighscoreManager hm = new HighscoreManager();
-			hm.addScore("Michael Woo", hud.getScore());
-		    System.out.print(hm.getHighscoreString());
+			hm.addScore("Julianna", hud.getScore());
+			System.out.print(hm.getHighscoreString());
 			game.gameState = STATE.Menu;
 		}
 
@@ -109,7 +110,7 @@ public class MouseListener extends MouseAdapter {
 																								// clicked
 				System.out.println("Leaderboard Clicked?");
 				game.gameState = STATE.Leaderboard;
-			//	lb.Display();
+				// lb.Display();
 
 			}
 
