@@ -57,7 +57,7 @@ public class MouseListener extends MouseAdapter {
 			// spawner2.addLevels();
 			// s Spawn1to10.LEVEL_SET = 1;
 			HighscoreManager hm = new HighscoreManager();
-			hm.addScore("Julianna", hud.getScore());
+			hm.addScore("Alexia", hud.getScore());
 			System.out.print(hm.getHighscoreString());
 			game.gameState = STATE.Menu;
 		}
