@@ -26,6 +26,7 @@ public class MouseListener extends MouseAdapter {
 	private Upgrades upgrades;
 	private Player player;
 	private String upgradeText;
+	// public Leaderboard lb;
 
 	public MouseListener(Game game, Handler handler, HUD hud, Spawn1to10 spawner, Spawn10to20 spawner2,
 			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades) {
@@ -44,16 +45,20 @@ public class MouseListener extends MouseAdapter {
 		int my = e.getY();
 
 		if (game.gameState == STATE.GameOver) {
+			handler.clearEnemies();
 			handler.object.clear();
-			upgrades.resetUpgrades();
-			hud.health = 100;
-			hud.setScore(0);
-			hud.setLevel(1);
-			spawner.restart();
-			spawner.addLevels();
-			spawner2.restart();
-			spawner2.addLevels();
-			Spawn1to10.LEVEL_SET = 1;
+			// upgrades.resetUpgrades();
+			// hud.health = 100;
+			// hud.setScore(0);
+			// hud.setLevel(1);
+			// spawner.restart();
+			// spawner.addLevels();
+			// spawner2.restart();
+			// spawner2.addLevels();
+			// s Spawn1to10.LEVEL_SET = 1;
+			HighscoreManager hm = new HighscoreManager();
+			hm.addScore("Julianna", hud.getScore());
+			System.out.print(hm.getHighscoreString());
 			game.gameState = STATE.Menu;
 		}
 
@@ -62,7 +67,7 @@ public class MouseListener extends MouseAdapter {
 		}
 
 		else if (game.gameState == STATE.Upgrade) {
-			if (mouseOver(mx, my, Game.WIDTH/2 - 375, Game.HEIGHT / 4, 750, 76)) {
+			if (mouseOver(mx, my, Game.WIDTH / 2 - 375, Game.HEIGHT / 4, 750, 76)) {
 				upgradeText = upgradeScreen.getPath(1);
 
 				upgrades.activateUpgrade(upgradeText);
@@ -70,7 +75,7 @@ public class MouseListener extends MouseAdapter {
 				upgradeScreen.removeUpgradeOption(1);
 
 				game.gameState = STATE.Game;
-			} else if (mouseOver(mx, my, Game.WIDTH/2 - 375, Game.HEIGHT / 2, 750, 76)) {
+			} else if (mouseOver(mx, my, Game.WIDTH / 2 - 375, Game.HEIGHT / 2, 750, 76)) {
 				upgradeText = upgradeScreen.getPath(2);
 
 				upgrades.activateUpgrade(upgradeText);
@@ -78,7 +83,7 @@ public class MouseListener extends MouseAdapter {
 				upgradeScreen.removeUpgradeOption(2);
 
 				game.gameState = STATE.Game;
-			} else if (mouseOver(mx, my, Game.WIDTH/2 - 375, 3 * Game.HEIGHT / 4, 750, 76)) {
+			} else if (mouseOver(mx, my, Game.WIDTH / 2 - 375, 3 * Game.HEIGHT / 4, 750, 76)) {
 				upgradeText = upgradeScreen.getPath(3);
 
 				upgrades.activateUpgrade(upgradeText);
@@ -92,21 +97,30 @@ public class MouseListener extends MouseAdapter {
 
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
-			if (mouseOver(mx, my, 100, Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
+			if (mouseOver(mx, my, 100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
 				handler.object.clear();
 				game.gameState = STATE.Game;
 				handler.addObject(player);
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
+			} else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) { // The
+																								// leaderboard
+																								// has
+																								// been
+																								// clicked
+				System.out.println("Leaderboard Clicked?");
+				game.gameState = STATE.Leaderboard;
+				// lb.Display();
+
 			}
 
 			// Help Button
-			else if (mouseOver(mx, my, 100, 2 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
+			else if (mouseOver(mx, my, 100, Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
 				game.gameState = STATE.Help;
 			}
 
 			// Credits
-			else if (mouseOver(mx, my, 100, 3 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
+			else if (mouseOver(mx, my, 100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
 				JOptionPane.showMessageDialog(game,
 						"Made by Brandon Loehle for his "
 								+ "final project in AP Computer Science senior year, 2015 - 2016."
@@ -115,7 +129,7 @@ public class MouseListener extends MouseAdapter {
 			}
 
 			// Quit Button
-			else if (mouseOver(mx, my, 100, 4 * Game.HEIGHT / 5 - 65, Game.WIDTH - 200, 100)) {
+			else if (mouseOver(mx, my, 100, 5 * Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
 				System.exit(1);
 			}
 		}
@@ -134,7 +148,8 @@ public class MouseListener extends MouseAdapter {
 	}
 
 	/**
-	 * Helper method to detect is the mouse is over a "button" drawn via Graphics
+	 * Helper method to detect is the mouse is over a "button" drawn via
+	 * Graphics
 	 * 
 	 * @param mx
 	 *            mouse x position

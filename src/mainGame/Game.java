@@ -46,11 +46,12 @@ public class Game extends Canvas implements Runnable {
 	 * Used to switch between each of the screens shown to the user
 	 */
 	public enum STATE {
-		Menu, Help, Game, GameOver, Upgrade,
+		Menu, Help, Game, GameOver, Upgrade, Leaderboard,
 	};
 
 	/**
 	 * Initialize the core mechanics of the game
+	 * Evan
 	 */
 	public Game() {
 		handler = new Handler();
@@ -238,8 +239,11 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public static void main(String[] args) {
-
+		//HighscoreManager hm = new HighscoreManager();
 		new Game();
+		
+
+		
 	}
 
 }

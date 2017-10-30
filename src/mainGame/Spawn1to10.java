@@ -12,8 +12,7 @@ import java.util.Random;
 import mainGame.Game.STATE;
 
 /**
- * Contains the programming of levels 1-10, as well as handles level
- * progression
+ * Contains the programming of levels 1-10, as well as handles level progression
  * 
  * @author Brandon Loehle 5/30/16
  */
@@ -116,19 +115,19 @@ public class Spawn1to10 {
 									// seconds long
 				tempCounter++; // ensures the method is only called once
 			} // end if
-			
+
 			if (spawnTimer == 0) { // time to spawn another enemy
 				handler.addObject(
 						new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.EnemyBasic, handler));
 				// add them to the handler, which handles all game objects
 				spawnTimer = 100; // reset the spawn timer
 			} // end if
-			
+
 			if (levelTimer == 750) {
 				// J makes level 1 transition text disappear
 				handler.clearText();
 			}
-			
+
 			if (levelTimer == 0) {// level is over
 				handler.clearEnemies();// clear the enemies
 				hud.setLevel(hud.getLevel() + 1);// Increment level number on
@@ -153,15 +152,17 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
+
 		else if (levelNumber == 2) {
 			spawnTimer--;
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 2", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 2",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 2", ID.Levels1to10Text));
 				// J's level transition text
-				levelTimer = 1000; // level 2 was previously twice the length of level 1...
+				levelTimer = 1000; // level 2 was previously twice the length of
+									// level 1...
 				tempCounter++;
 			} // end if
 			if (spawnTimer == 30) {
@@ -186,7 +187,7 @@ public class Spawn1to10 {
 				// J makes level 2 transition text disappear
 				handler.clearText();
 			}
-			
+
 			if (levelTimer == 0) {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
@@ -205,28 +206,27 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
-		else if (levelNumber == 3) {
+		else if (levelNumber == 3 && list.getItem(2) == 3) {
 			spawnTimer--;
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 3", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 5",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 3", ID.Levels1to10Text));
-				// J's level 3 transition text
-				levelTimer = 1000; // level 3 was 1500?
+				// J's level 5 transition text
+				levelTimer = 1000; // level 5 was 1400?
 				tempCounter++;
 			} // end if
-			if (spawnTimer == 0) {
-				handler.addObject(
-						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -5, ID.EnemySmart, handler));
-				spawnTimer = 100;
+			if (spawnTimer <= 0) {
+				handler.addObject(new EnemyBurst(-200, 200, 50, 50, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
+				spawnTimer = 180;
 			} // end if
-			
+
 			if (levelTimer == 750) {
-				// J makes level 3 transition text disappear
+				// J makes level 5 transition text disappear
 				handler.clearText();
 			}
-			
+
 			if (levelTimer == 0) {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
@@ -243,14 +243,14 @@ public class Spawn1to10 {
 					 */
 					list.getItem(3);
 					levelNumber++;
-
 				} // end else
 			} // end if
 		} // end else if
-		
+
 		else if (levelNumber == 4 && list.getItem(3) == 4) {
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 4", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 4",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 4", ID.Levels1to10Text));
 				// J's level 4 transition text
@@ -259,7 +259,7 @@ public class Spawn1to10 {
 				levelTimer = 1000; // level 4 was 1300?
 				tempCounter++;
 			} // end if
-			
+
 			if (levelTimer == 750) {
 				// J makes level 4 transition text disappear
 				handler.clearText();
@@ -270,7 +270,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
-				
+
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -285,27 +285,29 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
+
 		else if (levelNumber == 5 && list.getItem(4) == 5) {
 			spawnTimer--;
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 5", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 8",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 5", ID.Levels1to10Text));
-				// J's level 5 transition text
-				levelTimer = 1000; // level 5 was 1400?
+				// J's level 8 transition text
+				levelTimer = 1000;
 				tempCounter++;
 			} // end if
-			if (spawnTimer <= 0) {
-				handler.addObject(new EnemyBurst(-200, 200, 50, 50, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
-				spawnTimer = 180;
+			if (spawnTimer == 0) {
+				handler.addObject(
+						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -3, ID.EnemySmart, handler));
+				spawnTimer = 50;
 			} // end if
 
 			if (levelTimer == 750) {
-				// J makes level 5 transition text disappear
+				// J makes level 8 transition text disappear
 				handler.clearText();
 			}
-			
+
 			if (levelTimer == 0) {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
@@ -325,11 +327,11 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
 		else if (levelNumber == 6 && list.getItem(5) == 6) {
 			spawnTimer--;
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 6", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 6",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 6", ID.Levels1to10Text));
 				// J's level 6 transition text
@@ -341,12 +343,12 @@ public class Spawn1to10 {
 						new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 7, 7, ID.EnemyBasic, handler));
 				spawnTimer = 50;
 			} // end if
-			
+
 			if (levelTimer == 750) {
 				// J makes level transition text disappear
 				handler.clearText();
 			}
-			
+
 			if (levelTimer == 0) {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
@@ -366,11 +368,12 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
+
 		else if (levelNumber == 7 && list.getItem(6) == 7) {
 			spawnTimer--;
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 7", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 7",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 7", ID.Levels1to10Text));
 				// J's level 7 transition text
@@ -394,7 +397,7 @@ public class Spawn1to10 {
 						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 25, -4, ID.EnemySweep, handler));
 				spawnTimer = 100;
 			} // end else if
-			
+
 			if (levelTimer == 750) {
 				// J makes level 7 transition text disappear
 				handler.clearText();
@@ -418,28 +421,28 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
+
 		else if (levelNumber == 8 && list.getItem(7) == 8) {
 			spawnTimer--;
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 8", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 10",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 8", ID.Levels1to10Text));
-				// J's level 8 transition text
-				levelTimer = 1000;
+				// J's level 10 transition text
+				levelTimer = 1000; // level 10 was 1400?
 				tempCounter++;
 			} // end if
-			if (spawnTimer == 0) {
-				handler.addObject(
-						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -3, ID.EnemySmart, handler));
-				spawnTimer = 50;
+			if (spawnTimer <= 0) {
+				handler.addObject(new EnemyBurst(-200, 200, 40, 40, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
+				spawnTimer = 90;
 			} // end if
-			
+
 			if (levelTimer == 750) {
-				// J makes level 8 transition text disappear
+				// J makes level 10 transition text disappear
 				handler.clearText();
 			}
-			
+
 			if (levelTimer == 0) {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
@@ -459,10 +462,11 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
+
 		else if (levelNumber == 9 && list.getItem(8) == 9) {
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 9", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 9",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 9", ID.Levels1to10Text));
 				// J's level 9 transition text
@@ -471,7 +475,7 @@ public class Spawn1to10 {
 				levelTimer = 1000; // level 9 was 2500?
 				tempCounter++;
 			} // end if
-			
+
 			if (levelTimer == 750) {
 				// J makes level 9 transition text disappear
 				handler.clearText();
@@ -496,24 +500,28 @@ public class Spawn1to10 {
 				} // end else
 			} // end if
 		} // end else if
-		
-		else if (levelNumber == 10 && list.getItem(9) == 10) {
+		/*
+		 */
+
+		else if (levelNumber == 10) {
 			spawnTimer--;
 			levelTimer--;
-			// handler.addObject(new LevelText(15, 600, "This is Level 10", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 3",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 10", ID.Levels1to10Text));
-				// J's level 10 transition text
-				levelTimer = 1000; // level 10 was 1400?
+				// J's level 3 transition text
+				levelTimer = 1000; // level 3 was 1500?
 				tempCounter++;
 			} // end if
-			if (spawnTimer <= 0) {
-				handler.addObject(new EnemyBurst(-200, 200, 40, 40, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
-				spawnTimer = 90;
+			if (spawnTimer == 0) {
+				handler.addObject(
+						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -5, ID.EnemySmart, handler));
+				spawnTimer = 100;
 			} // end if
-			
+
 			if (levelTimer == 750) {
-				// J makes level 10 transition text disappear
+				// J makes level 3 transition text disappear
 				handler.clearText();
 			}
 
@@ -533,21 +541,22 @@ public class Spawn1to10 {
 					 */
 					list.getItem(10);
 					levelNumber++;
+
 				} // end else
 			} // end if
 		} // end else if
-
 		else if (levelNumber == 11) {// arbitrary
 										// number for
 										// the boss
-			// handler.addObject(new LevelText(15, 600, "This is Level 11", ID.Levels1to10Text));
+			// handler.addObject(new LevelText(15, 600, "This is Level 11",
+			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "BOSS LEVEL", ID.Levels1to10Text));
 				// J's level 11 transition text
 				handler.addObject(new EnemyBoss(ID.EnemyBoss, handler));
 				tempCounter++;
 			} // end if
-			
+
 			else if (tempCounter >= 1) {
 				for (int i = 0; i < handler.object.size(); i++) {
 					GameObject tempObject = handler.object.get(i);
@@ -603,5 +612,5 @@ public class Spawn1to10 {
 		int textWidth = (int) (font.getStringBounds(text, frc).getWidth());
 		return textWidth;
 	}
-	
+
 }// end Spawn1to10
