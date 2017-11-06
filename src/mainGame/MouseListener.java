@@ -114,7 +114,7 @@ public class MouseListener extends MouseAdapter {
 				handler.addObject(player);
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
-			} else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) { // The
+			} else if (mouseOver(mx, my, Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) { // The
 																								// leaderboard
 																								// has
 																								// been
@@ -157,6 +157,22 @@ public class MouseListener extends MouseAdapter {
 				return;
 			}
 		}
+		
+		// Back Button for Pick a Player! screen
+				else if (game.gameState == STATE.PickPlayer) {
+					if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
+						game.gameState = STATE.Menu;
+						return;
+					}
+				}
+		
+		// Back Button for Leaderboard screen
+				else if (game.gameState == STATE.Leaderboard) {
+					if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
+						game.gameState = STATE.Menu;
+						return;
+					}
+				}
 	}
 
 	public void mouseReleased(MouseEvent e) {

@@ -182,30 +182,42 @@ public class Menu {
 		} else if (game.gameState == STATE.PickPlayer) {
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 25);
-			// lb.Display();
 			g.setFont(font);
 			g.setColor(Color.white);
 			text5 = "Pick a Player!";
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
+			
+			g.setFont(font2);
+			g.setColor(Color.white);
+			text9 = "Back";
+			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 3 * Game.HEIGHT / 4 + 25, 100, 50);
+			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2,  3 * Game.HEIGHT / 4 + 60);
 		}
 
 		else if (game.gameState == STATE.Leaderboard) { //This is the leaderboard rendering
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 25);
+			Font font3 = new Font("impact", 1, 35);
 			// lb.Display();
 			g.setFont(font);
 			g.setColor(Color.white);
 			text5 = "Leaderboard";
-			
-			int y = 250;
+
+			int y = Game.HEIGHT / 5;
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
 
-			for (int i = 0; i < scores.length; i++) {
-				g.drawString(scores[i], Game.WIDTH / 2 - getTextWidth(font,scores[i]) / 2, y); //1
+			g.setFont(font3);
+			g.setColor(Color.white);
+			for (int i = 0; i < 5; i++) {
+				g.drawString(scores[i], Game.WIDTH / 2 - getTextWidth(font3,scores[i]) / 2, y); //1
 				y += 100;
 			}
 			
-		
+			g.setFont(font2);
+			g.setColor(Color.white);
+			text9 = "Back";
+			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 3 * Game.HEIGHT / 4 + 25, 100, 50);
+			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2,  3 * Game.HEIGHT / 4 + 60);
 
 		}
 	}
