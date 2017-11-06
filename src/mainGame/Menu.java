@@ -115,20 +115,20 @@ public class Menu {
 			g.setColor(Color.white);
 			text2 = "Help";
 			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, Game.HEIGHT / 3);
+			
+			g.setColor(Color.white);
+			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH/2 - 125, 100);
+			g.setFont(font);
+			g.setColor(Color.white);
+			text10 = "Pick a Player!";
+			g.drawString(text10, Game.WIDTH / 4 + 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
 
 			g.setColor(Color.white);
-			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH - 850, 100);
+			g.drawRect(Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text10 = "Leaderboard";
-			g.drawString(text10, Game.WIDTH / 2 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
-
-			g.setColor(Color.white);
-			g.drawRect(750, Game.HEIGHT / 2 - 65, Game.WIDTH - 850, 100);
-			g.setFont(font);
-			g.setColor(Color.white);
-			text10 = "Pick Player!";
-			g.drawString(text10, Game.WIDTH / 2 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
+			g.drawString(text10, 3 * Game.WIDTH / 4 - 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
 			
 			g.setColor(Color.white);
 			g.drawRect(100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100);
