@@ -40,7 +40,7 @@ public class LevelText extends GameObject {
 	public void render(Graphics g) {
 		timer--;
 
-		Font font = new Font("Amoebic", 1, 100);
+		Font font = new Font("Apple Chancery", 1, 100);
 		// J increases size of text for level transitions
 		g.setFont(font);
 		g.setColor(color[index]);// set the new random color

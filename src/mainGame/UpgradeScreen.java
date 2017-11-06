@@ -52,7 +52,7 @@ public class UpgradeScreen {
 	}
 
 	public void render(Graphics g) {
-		Font font = new Font("Amoebic", 75, 50);
+		Font font = new Font("Apple Chancery", 75, 50);
 		text = "Select an Upgrade!";
 		g.setFont(font);
 		g.setColor(Color.WHITE);

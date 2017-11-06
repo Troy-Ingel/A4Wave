@@ -101,7 +101,7 @@ public class Menu {
 		if (game.gameState == STATE.Menu) {
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
 			handler.render(g);
-			Font font = new Font("Amoebic", 1, 50);
+			Font font = new Font("Apple Chancery", 1, 50);
 			// J fixed the HUD on the menu
 
 			g.setFont(font);
@@ -152,8 +152,8 @@ public class Menu {
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on
 													// "help"
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 25);
+			Font font = new Font("Apple Chancery", 1, 50);
+			Font font2 = new Font("Apple Chancery", 1, 25);
 
 			g.setFont(font);
 			g.setColor(Color.white);
@@ -180,8 +180,8 @@ public class Menu {
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
 		} else if (game.gameState == STATE.PickPlayer) {
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 25);
+			Font font = new Font("Apple Chancery", 1, 50);
+			Font font2 = new Font("Apple Chancery", 1, 25);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text5 = "Pick a Player!";
@@ -195,9 +195,9 @@ public class Menu {
 		}
 
 		else if (game.gameState == STATE.Leaderboard) { //This is the leaderboard rendering
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 25);
-			Font font3 = new Font("impact", 1, 35);
+			Font font = new Font("Apple Chancery", 1, 50);
+			Font font2 = new Font("Apple Chancery", 1, 25);
+			Font font3 = new Font("Apple Chancery", 1, 35);
 			// lb.Display();
 			g.setFont(font);
 			g.setColor(Color.white);
