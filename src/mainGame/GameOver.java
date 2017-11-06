@@ -53,8 +53,9 @@ public class GameOver {
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 + 50);
 		g.setColor(this.retryColor);
 		g.setFont(font2);
-		text = "Click anywhere to play again!";
+		text = "Click anywhere to play again";
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 + 150);
+
 		//lb.setScore(0, hud.getScore());
 		//hm.addScore("Michael Woo", hud.getScore());
 		

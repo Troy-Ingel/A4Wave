@@ -9,6 +9,7 @@ public class Leaderboard {
 	public Leaderboard(String name, int score) {
 		playerName = name;
 		playerscore = score;
+		System.out.println("Leaderboard loaded");
 
 	}
 

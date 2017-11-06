@@ -3,6 +3,7 @@ package mainGame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import mainGame.Game.STATE;
@@ -57,8 +58,18 @@ public class MouseListener extends MouseAdapter {
 			// spawner2.addLevels();
 			// s Spawn1to10.LEVEL_SET = 1;
 			HighscoreManager hm = new HighscoreManager();
-			hm.addScore("Alexia", hud.getScore());
-			System.out.print(hm.getHighscoreString());
+			
+			
+			 JFrame frame = new JFrame("Enter Your Name");
+
+			 // prompt the user to enter their name
+			 String name = JOptionPane.showInputDialog(frame, "What's your name?");
+
+			 // get the user's input. note that if they press Cancel, 'name' will be null
+			 System.out.printf("The user's name is '%s'.\n", name);
+			 hm.addScore(name, hud.getScore());
+			System.out.println( " Name + " +  name + " hud = " + hud.getScore());
+			
 			game.gameState = STATE.Menu;
 		}
 
@@ -112,6 +123,11 @@ public class MouseListener extends MouseAdapter {
 				game.gameState = STATE.Leaderboard;
 				// lb.Display();
 
+			}
+			// Pick a Player! Button
+			else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) {
+							game.gameState = STATE.PickPlayer;
+							System.out.println("Pick a player");
 			}
 
 			// Help Button

@@ -79,24 +79,23 @@ public class HighscoreManager {
 			}
 		}
 	}
+	
 
-	public String getHighscoreString() {
+	public String getHighscoreString(int index) {
 		String highscoreString = "";
 		int max = 5;
 
 		ArrayList<Score> scores;
 		scores = getScores();
 
-		int i = 0;
+		
 		int x = scores.size();
 		if (x > max) {
 			x = max;
-		}
-		while (i < x) {
-			
-			highscoreString += (i + 1) + ".\t" + scores.get(i).getNaam() + "\t\t" + scores.get(i).getScore() + "\n";
-			i++;
-		}
+		}	
+		highscoreString += (index + 1) + ".\t" + scores.get(index).getNaam() + "\t\t" + scores.get(index).getScore() + "\n";
+		
+		
 		return highscoreString;
 	}
 }

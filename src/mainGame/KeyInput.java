@@ -43,6 +43,7 @@ public class KeyInput extends KeyAdapter {
 	}
 
 	public void keyPressed(KeyEvent e) {
+		System.out.println("Event " + e.getKeyChar());
 		int key = e.getKeyCode();
 		this.speed = Player.playerSpeed;
 

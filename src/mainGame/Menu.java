@@ -46,10 +46,16 @@ public class Menu {
 	private String text8;
 	private String text9;
 	private String text10;
+	private String[] scores;
 	// public Leaderboard lb;
 
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
-
+		HighscoreManager hm = new HighscoreManager();
+		scores = new String[hm.getScores().size()];
+		for (int i = 0; i < hm.getScores().size(); i++) {
+			
+			scores[i] = hm.getHighscoreString(i);
+		}
 		this.game = game;
 		this.handler = handler;
 		this.hud = hud;
@@ -122,7 +128,7 @@ public class Menu {
 			g.setColor(Color.white);
 			text10 = "Pick a Player!";
 			g.drawString(text10, Game.WIDTH / 4 + 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
-
+			
 			g.setColor(Color.white);
 			g.drawRect(Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100);
 			g.setFont(font);
@@ -183,14 +189,23 @@ public class Menu {
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
 		}
 
-		else if (game.gameState == STATE.Leaderboard) {
+		else if (game.gameState == STATE.Leaderboard) { //This is the leaderboard rendering
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 25);
 			// lb.Display();
 			g.setFont(font);
 			g.setColor(Color.white);
 			text5 = "Leaderboard";
+			
+			int y = 250;
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
+
+			for (int i = 0; i < scores.length; i++) {
+				g.drawString(scores[i], Game.WIDTH / 2 - getTextWidth(font,scores[i]) / 2, y); //1
+				y += 100;
+			}
+			
+		
 
 		}
 	}

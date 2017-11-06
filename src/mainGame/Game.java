@@ -209,6 +209,7 @@ public class Game extends Canvas implements Runnable {
 		} else if (gameState == STATE.GameOver) {// game is over, draw the game
 													// over screen
 			gameOver.render(g);
+			
 		}
 
 		///////// Draw things above this//////////////
