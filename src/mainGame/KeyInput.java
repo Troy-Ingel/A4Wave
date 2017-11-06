@@ -56,6 +56,9 @@ public class KeyInput extends KeyAdapter {
 													// user can control
 				// key events for player 1
 				if (key == KeyEvent.VK_UP) {
+
+					System.out.println("Called");
+
 					tempObject.setVelY(-(this.speed));
 					keyDown[0] = true;
 				}
