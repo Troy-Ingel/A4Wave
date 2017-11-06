@@ -46,10 +46,10 @@ public class Menu {
 	private String text8;
 	private String text9;
 	private String text10;
-	//public Leaderboard lb;
+	// public Leaderboard lb;
 
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
-		
+
 		this.game = game;
 		this.handler = handler;
 		this.hud = hud;
@@ -115,9 +115,9 @@ public class Menu {
 			g.setColor(Color.white);
 			text2 = "Help";
 			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, Game.HEIGHT / 3);
-			
+
 			g.setColor(Color.white);
-			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH/2 - 125, 100);
+			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100);
 			g.setFont(font);
 			g.setColor(Color.white);
 			text10 = "Pick a Player!";
@@ -129,7 +129,7 @@ public class Menu {
 			g.setColor(Color.white);
 			text10 = "Leaderboard";
 			g.drawString(text10, 3 * Game.WIDTH / 4 - 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
-			
+
 			g.setColor(Color.white);
 			g.drawRect(100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
@@ -173,42 +173,23 @@ public class Menu {
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
-		} else if (game.gameState == STATE.PickPlayer) {// if the user clicks on
-			// "help"
-Font font = new Font("impact", 1, 50);
-Font font2 = new Font("impact", 1, 25);
-
-g.setFont(font);
-g.setColor(Color.white);
-text5 = "Help";
-g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
-
-g.setFont(font2);
-text6 = "Use arrow keys to avoid enemies. Avoid enemies long enough to rack up points and advance to the"
-+ " next level!";
-g.drawString(text6, Game.WIDTH / 2 - getTextWidth(font2, text6) / 2, 150);
-text7 = "Defeat the boss on Level 11 to win an upgrade!";
-g.drawString(text7, Game.WIDTH / 2 - getTextWidth(font2, text7) / 2, 200);
-text8 = "Ability upgrades are used by pressing Enter.";
-g.drawString(text8, Game.WIDTH / 2 - getTextWidth(font2, text8) / 2, 250);
-
-
-g.setFont(font2);
-g.setColor(Color.white);
-text9 = "Back";
-g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
-g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
-		}
-		
-		
-		
-else if (game.gameState == STATE.Leaderboard) {
+		} else if (game.gameState == STATE.PickPlayer) {
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 25);
-		//	lb.Display();
+			// lb.Display();
 			g.setFont(font);
 			g.setColor(Color.white);
-			text5 = "Help";
+			text5 = "Pick a Player!";
+			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
+		}
+
+		else if (game.gameState == STATE.Leaderboard) {
+			Font font = new Font("impact", 1, 50);
+			Font font2 = new Font("impact", 1, 25);
+			// lb.Display();
+			g.setFont(font);
+			g.setColor(Color.white);
+			text5 = "Leaderboard";
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
 
 		}
