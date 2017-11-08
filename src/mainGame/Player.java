@@ -43,7 +43,8 @@ public class Player extends GameObject {
 		y = Game.clamp(y, 0, Game.HEIGHT - 60);
 
 		// add the trail that follows it
-		// EVAN CHANGES HERE: removed code for player trail, kept still for enemy
+		// EVAN CHANGES HERE: removed code for player trail, kept still for
+		// enemy
 
 		collision();
 		checkIfDead();
@@ -57,7 +58,8 @@ public class Player extends GameObject {
 				game.gameState = STATE.GameOver;
 			}
 
-			else if (hud.getExtraLives() > 0) {// has an extra life, game continues
+			else if (hud.getExtraLives() > 0) {// has an extra life, game
+												// continues
 				hud.setExtraLives(hud.getExtraLives() - 1);
 				hud.setHealth(100);
 			}
@@ -77,21 +79,40 @@ public class Player extends GameObject {
 					|| tempObject.getId() == ID.EnemySmart || tempObject.getId() == ID.EnemyBossBullet
 					|| tempObject.getId() == ID.EnemySweep || tempObject.getId() == ID.EnemyShooterBullet
 					|| tempObject.getId() == ID.EnemyBurst || tempObject.getId() == ID.EnemyShooter
-					|| tempObject.getId() == ID.BossEye) {// tempObject is an enemy
+					|| tempObject.getId() == ID.BossEye) {// tempObject is an
+															// enemy
 
 				// collision code
-				if (getBounds().intersects(tempObject.getBounds())) {// player hit an enemy
+				if (getBounds().intersects(tempObject.getBounds())) {// player
+																		// hit
+																		// an
+																		// enemy
 					hud.health -= damage;
 					hud.updateScoreColor(Color.red);
 				}
 
 			}
 			if (tempObject.getId() == ID.EnemyBoss) {
-				// Allows player time to get out of upper area where they will get hurt once the
+				// Allows player time to get out of upper area where they will
+				// get hurt once the
 				// boss starts moving
 				if (this.y <= 138 && tempObject.isMoving) {
 					hud.health -= 2;
 					hud.updateScoreColor(Color.red);
+				}
+			}
+			if (tempObject.getId() == ID.PickupHealth) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+				// player gains health when they touch health pickup
+				hud.addHealth();
+				handler.clearPickupHealth();
+				}
+			}
+			if (tempObject.getId() == ID.PickupSpeed) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+				// player gain speed when they touch pickup
+				hud.addBoost();
+				handler.clearPickupSpeed();
 				}
 			}
 

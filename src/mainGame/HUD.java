@@ -43,13 +43,14 @@ public class HUD {
 
 		score++;
 
-		if (regen) {// regenerates health if that ability has been unlocked
+		if (regen == true) {// regenerates health if that ability has been unlocked
 			timer--;
 			if (timer == 0 && health < 100) {
 				health += 1;
 				timer = 60;
 			}
 		}
+		
 	}
 
 	public void render(Graphics g) {
@@ -147,5 +148,17 @@ public class HUD {
 
 	public void restoreHealth() {
 		this.health = healthMax;
+	}
+	
+	public void addHealth() {
+		if (health <= 75) {
+			this.health += 25;
+		} else {
+			this.health = healthMax;
+		}
+	}
+	
+	public void addBoost() {
+		Player.playerSpeed = 20;
 	}
 }

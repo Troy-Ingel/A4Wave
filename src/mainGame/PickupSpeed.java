@@ -5,20 +5,13 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 
-/**
- * TO BE IMPLEMENTED - adds health to the player when they move over it
- * @author Brandon Loehle
- * 5/30/16
- *
- */
-
-public class PickupHealth extends GameObject {
-	// moves similar to Enemy Basic
+public class PickupSpeed extends GameObject {
+	// moves similar to Enemy Sweep
 
 	private Handler handler;
 	private Image img;
 
-	public PickupHealth(double x, double y, int velX, int velY, ID id, Handler handler) {
+	public PickupSpeed(double x, double y, int velX, int velY, ID id, Handler handler) {
 		super(x, y, id);
 		this.img = getImage("images/bosseye.png");
 		this.handler = handler;
@@ -34,7 +27,6 @@ public class PickupHealth extends GameObject {
 			velY *= -1;
 		if (this.x <= 0 || this.x >= Game.WIDTH - 16)
 			velX *= -1;
-
 	}
 
 	public void render(Graphics g) {

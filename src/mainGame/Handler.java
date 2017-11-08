@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class Handler {
 
 	ArrayList<GameObject> object = new ArrayList<GameObject>();
-	ArrayList<Pickup> pickups = new ArrayList<Pickup>();
 	private int timer = 0;
 
 	/**
@@ -38,13 +37,6 @@ public class Handler {
 				}
 			}
 		}
-		for (int i = 0; i < pickups.size(); i++) {
-			Pickup tempObject = pickups.get(i);
-
-			// Every Pickup has a tick method, so this effectively updates every single
-			// object
-			tempObject.tick();
-		}
 
 	}
 
@@ -57,11 +49,7 @@ public class Handler {
 			GameObject tempObject = object.get(i);
 			tempObject.render(g);
 		}
-		for (int i = 0; i < pickups.size(); i++) {
-			Pickup tempObject = pickups.get(i);
 
-			tempObject.render(g);
-		}
 	}
 
 	public void pause() {
@@ -74,14 +62,6 @@ public class Handler {
 
 	public void removeObject(GameObject object) {
 		this.object.remove(object);
-	}
-
-	public void addPickup(Pickup object) {
-		this.pickups.add(object);
-	}
-
-	public void removePickup(Pickup object) {
-		this.pickups.remove(object);
 	}
 
 	/**
@@ -104,6 +84,28 @@ public class Handler {
 			if (tempObject.getId() == ID.Levels1to10Text) {
 				this.removeObject(tempObject);
 				i--;
+			}
+		}
+	}
+	
+	public void clearPickupHealth() {
+		for (int i = 0; i < this.object.size(); i++) {
+			GameObject tempObject = this.object.get(i);
+			if (tempObject.getId() == ID.PickupHealth) {
+				this.removeObject(tempObject);
+				i--; // Removing shrinks the array by 1, causing the loop to skip a player (should
+						// there be more than one)
+			}
+		}
+	}
+	
+	public void clearPickupSpeed() {
+		for (int i = 0; i < this.object.size(); i++) {
+			GameObject tempObject = this.object.get(i);
+			if (tempObject.getId() == ID.PickupSpeed) {
+				this.removeObject(tempObject);
+				i--; // Removing shrinks the array by 1, causing the loop to skip a player (should
+						// there be more than one)
 			}
 		}
 	}

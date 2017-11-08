@@ -125,7 +125,12 @@ public class Spawn1to10 {
 
 			if (levelTimer == 750) {
 				// J makes level 1 transition text disappear
+				// J adds pickups
 				handler.clearText();
+				handler.addObject(
+						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				 // handler.addObject(
+						 // new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
 			}
 
 			if (levelTimer == 0) {// level is over
@@ -134,6 +139,7 @@ public class Spawn1to10 {
 													// HUD
 				spawnTimer = 40;
 				tempCounter = 0;// reset tempCounter
+				Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {// time for the boss!
 					levelNumber = 11;// arbitrary number for the boss level
 				} // end if
@@ -192,6 +198,7 @@ public class Spawn1to10 {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -232,6 +239,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -270,6 +278,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
@@ -313,6 +322,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -354,6 +364,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 40;
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -407,6 +418,7 @@ public class Spawn1to10 {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -448,6 +460,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -486,6 +499,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -530,6 +544,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
+				// Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -566,6 +581,7 @@ public class Spawn1to10 {
 							// J makes boss level transition disappear
 						}
 						if (tempObject.getHealth() <= 0) {
+							// Player.playerSpeed = 10; // resets player speed
 							handler.removeObject(tempObject);
 							LEVEL_SET++;
 							game.gameState = STATE.Upgrade;

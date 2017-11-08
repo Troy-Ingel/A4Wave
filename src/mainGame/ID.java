@@ -22,7 +22,10 @@ public enum ID {
 	Firework(),
 	FireworkSpark(),
 	CircleTrail(),
+	// new pickups
 	PickupHealth(),
+	PickupSpeed(),
+	// lol
 	Levels1to10Text(),
 	EnemyBasic();
 	
