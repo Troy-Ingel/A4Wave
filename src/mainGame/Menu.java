@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.font.FontRenderContext;
@@ -30,7 +31,11 @@ public class Menu {
 	private Game game;
 	private Handler handler;
 	private HUD hud;
-	private BufferedImage img;
+	private BufferedImage background;
+	private BufferedImage player1;
+	private BufferedImage player2;
+	private BufferedImage player3;
+	private BufferedImage player4;
 	private int timer;
 	private Random r;
 	private ArrayList<Color> colorPick = new ArrayList<Color>();
@@ -64,9 +69,9 @@ public class Menu {
 		r = new Random();
 		addColors();
 
-		img = null;
+		background = null;
 		try {
-			img = ImageIO.read(new File("images/background.jpg"));
+			background = ImageIO.read(new File("images/background.jpg"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -99,14 +104,14 @@ public class Menu {
 
 	public void render(Graphics g) {
 		if (game.gameState == STATE.Menu) {
-			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
+			g.drawImage(background, 0, 0, Game.WIDTH, Game.HEIGHT, null);
 			handler.render(g);
 			Font font = new Font("Apple Chancery", 1, 50);
 			// J fixed the HUD on the menu
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Harry Potter Game", 100, 50);
+			g.drawString("Harry Potter Waves", 100, 50);
 
 			// g.setColor(Color.white);
 			g.drawRect(100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100);
@@ -187,6 +192,36 @@ public class Menu {
 			text5 = "Pick a Player!";
 			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
 			
+			player1 = null;
+			try {
+				player1 = ImageIO.read(new File("images/player1option.png"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			player2 = null;
+			try {
+				player2 = ImageIO.read(new File("images/player2option.png"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			player3 = null;
+			try {
+				player3 = ImageIO.read(new File("images/player3option.png"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			player4 = null;
+			try {
+				player4 = ImageIO.read(new File("images/player4option.png"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			g.drawImage(player1, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
+			g.drawImage(player2, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
+			g.drawImage(player3, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
+			g.drawImage(player4, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
+			
 			g.setFont(font2);
 			g.setColor(Color.white);
 			text9 = "Back";
@@ -227,6 +262,16 @@ public class Menu {
 		FontRenderContext frc = new FontRenderContext(at, true, true);
 		int textWidth = (int) (font.getStringBounds(text, frc).getWidth());
 		return textWidth;
+	}
+	
+	public Image getImage(String path) {
+		Image image = null;
+		try {
+			image = Toolkit.getDefaultToolkit().getImage(path);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return image;
 	}
 
 }

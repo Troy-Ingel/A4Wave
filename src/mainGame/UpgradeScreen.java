@@ -121,7 +121,6 @@ public class UpgradeScreen {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
 		return image;
 	}
 
