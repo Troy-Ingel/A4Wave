@@ -13,7 +13,7 @@ public class PickupSpeed extends GameObject {
 
 	public PickupSpeed(double x, double y, int velX, int velY, ID id, Handler handler) {
 		super(x, y, id);
-		this.img = getImage("images/bosseye.png");
+		this.img = getImage("images/speed.png");
 		this.handler = handler;
 		this.velX = velX;
 		this.velY = velY;
