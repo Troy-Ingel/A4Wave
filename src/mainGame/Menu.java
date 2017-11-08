@@ -105,7 +105,7 @@ public class Menu {
 			// J fixed the HUD on the menu
 
 			g.setFont(font);
-			// g.setColor(Color.white);
+			g.setColor(Color.white);
 			g.drawString("Harry Potter Game", 100, 50);
 
 			// g.setColor(Color.white);
