@@ -36,6 +36,7 @@ public class Game extends Canvas implements Runnable {
 	private Menu menu;
 	private GameOver gameOver;
 	private UpgradeScreen upgradeScreen;
+	private PickAPlayerScreen pickPlayerScreen;
 	private MouseListener mouseListener;
 	private Upgrades upgrades;
 	private Player player;
@@ -60,6 +61,7 @@ public class Game extends Canvas implements Runnable {
 		spawner2 = new Spawn10to20(this.handler, this.hud, this.spawner, this);
 		menu = new Menu(this, this.handler, this.hud, this.spawner);
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
+		pickPlayerScreen = new PickAPlayerScreen(this, this.handler, this.hud);
 		player = new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler, this.hud, this);
 		upgrades = new Upgrades(this, this.handler, this.hud, this.upgradeScreen, this.player, this.spawner,
 				this.spawner2);
@@ -144,7 +146,7 @@ public class Game extends Canvas implements Runnable {
 													// 20, update them
 				spawner2.tick();
 			}
-		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard || gameState == STATE.PickPlayer) {// user
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard) {// user
 																		// is on
 																		// menu,
 																		// update
@@ -152,7 +154,10 @@ public class Game extends Canvas implements Runnable {
 																		// menu
 																		// items
 			menu.tick();
-		} else if (gameState == STATE.Upgrade) {// user is on upgrade screen,
+		} else if (gameState == STATE.PickPlayer) {
+			pickPlayerScreen.tick();
+		}
+		else if (gameState == STATE.Upgrade) {// user is on upgrade screen,
 												// update the upgrade screen
 			upgradeScreen.tick();
 		} else if (gameState == STATE.GameOver) {// game is over, update the
@@ -191,7 +196,7 @@ public class Game extends Canvas implements Runnable {
 
 		if (gameState == STATE.Game) {// user is playing game, draw game objects
 			hud.render(g);
-		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard || gameState == STATE.PickPlayer) {// user
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard) {// user
 																		// is in
 																		// help
 																		// or
@@ -202,6 +207,8 @@ public class Game extends Canvas implements Runnable {
 																		// menu
 			// and help objects
 			menu.render(g);
+		} else if (gameState == STATE.PickPlayer) {
+			pickPlayerScreen.render(g);
 		} else if (gameState == STATE.Upgrade) {// user is on the upgrade
 												// screen, draw the upgrade
 												// screen

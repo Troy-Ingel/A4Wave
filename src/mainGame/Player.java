@@ -3,7 +3,9 @@ package mainGame;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.util.Random;
 
 import mainGame.Game.STATE;
@@ -24,6 +26,7 @@ public class Player extends GameObject {
 	private int damage;
 	private int playerWidth, playerHeight;
 	public static int playerSpeed = 10;
+	public int c;
 
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
 		super(x, y, id);
@@ -122,9 +125,10 @@ public class Player extends GameObject {
 	@Override
 	public void render(Graphics g) {
 
-		g.setColor(Color.white);
-		g.fillRect((int) x, (int) y, playerWidth, playerHeight);
+		// g.setColor(Color.white);
+		// g.fillRect((int) x, (int) y, playerWidth, playerHeight);
 
+		g.drawImage(setCharacter(c), (int) x, (int) y, playerWidth, playerHeight, null);
 	}
 
 	@Override
@@ -139,6 +143,30 @@ public class Player extends GameObject {
 	public void setPlayerSize(int size) {
 		this.playerWidth = size;
 		this.playerHeight = size;
+	}
+	
+	public Image setCharacter(int c) {
+		if (c == 1) {
+			return getImage("images/player1.png");
+		} else if (c == 2) {
+			return getImage("images/player2.png");
+		} else if (c == 3) {
+			return getImage("images/player3.png");
+		} else if (c == 4) {
+			return getImage("images/player4.png");
+		} else {
+			return getImage("images/player4.png");
+		} // why is it just going to the else statement?
+	}
+	
+	public Image getImage(String path) {
+		Image image = null;
+		try {
+			image = Toolkit.getDefaultToolkit().getImage(path);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return image;
 	}
 
 }

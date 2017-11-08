@@ -160,6 +160,34 @@ public class MouseListener extends MouseAdapter {
 		
 		// Back Button for Pick a Player! screen
 				else if (game.gameState == STATE.PickPlayer) {
+					if (mouseOver(mx, my, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(1);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
+					if (mouseOver(mx, my, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(2);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
+					if (mouseOver(mx, my, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(3);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
+					if (mouseOver(mx, my, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(4);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
 					if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
 						game.gameState = STATE.Menu;
 						return;

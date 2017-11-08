@@ -32,10 +32,6 @@ public class Menu {
 	private Handler handler;
 	private HUD hud;
 	private BufferedImage background;
-	private BufferedImage player1;
-	private BufferedImage player2;
-	private BufferedImage player3;
-	private BufferedImage player4;
 	private int timer;
 	private Random r;
 	private ArrayList<Color> colorPick = new ArrayList<Color>();
@@ -184,49 +180,6 @@ public class Menu {
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
-		} else if (game.gameState == STATE.PickPlayer) {
-			Font font = new Font("Apple Chancery", 1, 50);
-			Font font2 = new Font("Apple Chancery", 1, 25);
-			g.setFont(font);
-			g.setColor(Color.white);
-			text5 = "Pick a Player!";
-			g.drawString(text5, Game.WIDTH / 2 - getTextWidth(font, text5) / 2, 70);
-			
-			player1 = null;
-			try {
-				player1 = ImageIO.read(new File("images/player1option.png"));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			player2 = null;
-			try {
-				player2 = ImageIO.read(new File("images/player2option.png"));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			player3 = null;
-			try {
-				player3 = ImageIO.read(new File("images/player3option.png"));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			player4 = null;
-			try {
-				player4 = ImageIO.read(new File("images/player4option.png"));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			g.drawImage(player1, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
-			g.drawImage(player2, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
-			g.drawImage(player3, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
-			g.drawImage(player4, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
-			
-			g.setFont(font2);
-			g.setColor(Color.white);
-			text9 = "Back";
-			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 3 * Game.HEIGHT / 4 + 25, 100, 50);
-			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2,  3 * Game.HEIGHT / 4 + 60);
 		}
 
 		else if (game.gameState == STATE.Leaderboard) { //This is the leaderboard rendering
@@ -253,7 +206,6 @@ public class Menu {
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 3 * Game.HEIGHT / 4 + 25, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2,  3 * Game.HEIGHT / 4 + 60);
-
 		}
 	}
 
@@ -262,16 +214,6 @@ public class Menu {
 		FontRenderContext frc = new FontRenderContext(at, true, true);
 		int textWidth = (int) (font.getStringBounds(text, frc).getWidth());
 		return textWidth;
-	}
-	
-	public Image getImage(String path) {
-		Image image = null;
-		try {
-			image = Toolkit.getDefaultToolkit().getImage(path);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return image;
 	}
 
 }
