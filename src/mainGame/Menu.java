@@ -181,6 +181,7 @@ public class Menu {
 		}
 
 		else if (game.gameState == STATE.Leaderboard) { //This is the leaderboard rendering
+			// once more for all the marbles
 			Font font = new Font("Apple Chancery", 1, 50);
 			Font font2 = new Font("Apple Chancery", 1, 25);
 			Font font3 = new Font("Apple Chancery", 1, 35);
