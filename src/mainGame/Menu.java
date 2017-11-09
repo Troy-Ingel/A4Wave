@@ -128,13 +128,6 @@ public class Menu {
 			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, Game.HEIGHT / 3);
 
 			// g.setColor(Color.white);
-			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100);
-			g.setFont(font);
-			// g.setColor(Color.white);
-			text10 = "Pick a Player!";
-			g.drawString(text10, Game.WIDTH / 4 + 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
-
-			// g.setColor(Color.white);
 			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			// g.setColor(Color.white);
@@ -187,10 +180,6 @@ public class Menu {
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 415, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 450);
-		}
-
-		else if (game.gameState == STATE.Leaderboard) { // This is the
-														// leaderboard rendering
 		} else if (game.gameState == STATE.Leaderboard) { // This is the
 															// leaderboard
 															// rendering
