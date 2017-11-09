@@ -145,6 +145,19 @@ public class Player extends GameObject {
 		this.playerHeight = size;
 	}
 	
+	/* 
+	 * Okay, so the issue is that you are calling this method from MouseListener, 
+	 * but this method does not set int c, it returns an image.
+	 * 
+	 * What you want to do is change this method to public Image getCharacter().
+	 * keep the logic the same, and dont forget to update the method call in line 131 to getCharacter()
+	 * 
+	 * Rename the class variable int c to in characterId
+	 * 
+	 * Create a new method called public void setCharacter(int id), which sets characterId = id.
+	 * call this method from the MouseListener. 
+	 * 
+	 */
 	public Image setCharacter(int c) {
 		if (c == 1) {
 			return getImage("images/player1.png");
@@ -158,6 +171,7 @@ public class Player extends GameObject {
 			return getImage("images/player4.png");
 		} // why is it just going to the else statement?
 	}
+
 	
 	public Image getImage(String path) {
 		Image image = null;
