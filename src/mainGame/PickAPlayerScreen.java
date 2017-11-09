@@ -67,16 +67,11 @@ public class PickAPlayerScreen {
 		e.printStackTrace();
 	}
 	
-	g.drawImage(player1, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
-	g.drawImage(player2, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
-	g.drawImage(player3, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
-	g.drawImage(player4, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280, null);
+	g.drawImage(player1, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
+	g.drawImage(player2, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
+	g.drawImage(player3, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
+	g.drawImage(player4, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
 	
-	g.setFont(font2);
-	g.setColor(Color.white);
-	text2 = "Back";
-	g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text2), 3 * Game.HEIGHT / 4 + 25, 100, 50);
-	g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font2, text2) / 2,  3 * Game.HEIGHT / 4 + 60);
 	}
 	
 	public int getTextWidth(Font font, String text) {

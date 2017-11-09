@@ -115,24 +115,37 @@ public class MouseListener extends MouseAdapter {
 			// Waves Button
 
 			if (mouseOver(mx, my, 100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
+<<<<<<< HEAD
 
 				AudioPlayer.getSound("sound").play();
 				handler.object.clear();
 				game.gameState = STATE.Game;
 				handler.addObject(player);
+=======
+				game.gameState = STATE.PickPlayer;
+>>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
+<<<<<<< HEAD
 
 			} else if (mouseOver(mx, my, Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) { // The
 				// leaderboard
 				// has
 				// been
 				// clicked
+=======
+			} else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) { // The
+																								// leaderboard
+																								// has
+																								// been
+																								// clicked
+>>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
 				System.out.println("Leaderboard Clicked?");
 				AudioPlayer.getSound("sound").play();
 				game.gameState = STATE.Leaderboard;
 				// lb.Display();
 
+<<<<<<< HEAD
 			}
 			// Pick a Player! Button
 			else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) {
@@ -140,6 +153,8 @@ public class MouseListener extends MouseAdapter {
 				;
 				game.gameState = STATE.PickPlayer;
 				System.out.println("Pick a player");
+=======
+>>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
 			}
 
 			// Help Button
@@ -167,14 +182,19 @@ public class MouseListener extends MouseAdapter {
 
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
+<<<<<<< HEAD
 			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 315, 100, 50)) {
 				AudioPlayer.getSound("sound").play();
+=======
+			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 415, 100, 50)) {
+>>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
 				game.gameState = STATE.Menu;
 				return;
 			}
 		}
 
 		// Back Button for Pick a Player! screen
+<<<<<<< HEAD
 		else if (game.gameState == STATE.PickPlayer) {
 			if (mouseOver(mx, my, Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
 				AudioPlayer.getSound("sound").play();
@@ -215,6 +235,39 @@ public class MouseListener extends MouseAdapter {
 			}
 		}
 
+=======
+				else if (game.gameState == STATE.PickPlayer) {
+					if (mouseOver(mx, my, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(1);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
+					if (mouseOver(mx, my, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(2);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
+					if (mouseOver(mx, my, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(3);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
+					if (mouseOver(mx, my, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+						player.setCharacter(4);
+						handler.object.clear();
+						game.gameState = STATE.Game;
+						handler.addObject(player);
+						return;
+					}
+				}
+		
+>>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
 		// Back Button for Leaderboard screen
 		else if (game.gameState == STATE.Leaderboard) {
 			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
