@@ -44,7 +44,7 @@ public class MouseListener extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
-		//AudioPlayer.getSound("sound");
+		// AudioPlayer.getSound("sound");
 		AudioPlayer.getMusic("music").stop();
 
 		if (game.gameState == STATE.GameOver) {
@@ -115,86 +115,71 @@ public class MouseListener extends MouseAdapter {
 			// Waves Button
 
 			if (mouseOver(mx, my, 100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
-<<<<<<< HEAD
 
 				AudioPlayer.getSound("sound").play();
 				handler.object.clear();
 				game.gameState = STATE.Game;
 				handler.addObject(player);
-=======
+
 				game.gameState = STATE.PickPlayer;
->>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
-				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
-				// "images/PickupHealth.png", handler));
-<<<<<<< HEAD
-
-			} else if (mouseOver(mx, my, Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) { // The
-				// leaderboard
-				// has
-				// been
-				// clicked
-=======
-			} else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) { // The
-																								// leaderboard
-																								// has
-																								// been
-																								// clicked
->>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
-				System.out.println("Leaderboard Clicked?");
-				AudioPlayer.getSound("sound").play();
-				game.gameState = STATE.Leaderboard;
-				// lb.Display();
-
-<<<<<<< HEAD
-			}
-			// Pick a Player! Button
-			else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) {
-				AudioPlayer.getSound("sound").play();
-				;
-				game.gameState = STATE.PickPlayer;
-				System.out.println("Pick a player");
-=======
->>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
 			}
 
-			// Help Button
-			else if (mouseOver(mx, my, 100, Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
-				AudioPlayer.getSound("sound").play();
-				game.gameState = STATE.Help;
-			}
+		} else if (mouseOver(mx, my, Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) { // The
+			// leaderboard
+			// has
+			// been
+			// clicked
 
-			// Credits
-			else if (mouseOver(mx, my, 100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
-				AudioPlayer.getSound("sound").play();
-				JOptionPane.showMessageDialog(game,
-						"Made by Brandon Loehle for his "
-								+ "final project in AP Computer Science senior year, 2015 - 2016."
-								+ "\n\nThis game is grossly unfinished with minor bugs. However,"
-								+ " it is 100% playable, enjoy!");
-			}
+		} else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) { // The
+																							// leaderboard
+																							// has
+																							// been
+																							// clicked
+		}
 
-			// Quit Button
-			else if (mouseOver(mx, my, 100, 5 * Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
-				AudioPlayer.getSound("sound").play();
-				System.exit(1);
-			}
+		// Pick a Player! Button
+		else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) {
+			AudioPlayer.getSound("sound").play();
+
+			game.gameState = STATE.PickPlayer;
+			System.out.println("Pick a player");
+		}
+
+		// Help Button
+		else if (mouseOver(mx, my, 100, Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
+			AudioPlayer.getSound("sound").play();
+			game.gameState = STATE.Help;
+		}
+
+		// Credits
+		else if (mouseOver(mx, my, 100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
+			AudioPlayer.getSound("sound").play();
+			JOptionPane.showMessageDialog(game,
+					"Made by Brandon Loehle for his " + "final project in AP Computer Science senior year, 2015 - 2016."
+							+ "\n\nThis game is grossly unfinished with minor bugs. However,"
+							+ " it is 100% playable, enjoy!");
+		}
+
+		// Quit Button
+		else if (mouseOver(mx, my, 100, 5 * Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
+			AudioPlayer.getSound("sound").play();
+			System.exit(1);
 		}
 
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
-<<<<<<< HEAD
+
 			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 315, 100, 50)) {
 				AudioPlayer.getSound("sound").play();
-=======
-			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 415, 100, 50)) {
->>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
-				game.gameState = STATE.Menu;
-				return;
 			}
+			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 415, 100, 50)) {
+			}
+			game.gameState = STATE.Menu;
+			return;
 		}
 
 		// Back Button for Pick a Player! screen
-<<<<<<< HEAD
+
 		else if (game.gameState == STATE.PickPlayer) {
 			if (mouseOver(mx, my, Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
 				AudioPlayer.getSound("sound").play();
@@ -235,39 +220,37 @@ public class MouseListener extends MouseAdapter {
 			}
 		}
 
-=======
-				else if (game.gameState == STATE.PickPlayer) {
-					if (mouseOver(mx, my, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(1);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(2);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(3);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(4);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-				}
-		
->>>>>>> branch 'master' of https://github.com/Troy-Ingel/A4Wave.git
+		else if (game.gameState == STATE.PickPlayer) {
+			if (mouseOver(mx, my, Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				player.setCharacter(1);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+			if (mouseOver(mx, my, 2 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				player.setCharacter(2);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+			if (mouseOver(mx, my, 3 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				player.setCharacter(3);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+			if (mouseOver(mx, my, 4 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				player.setCharacter(4);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+		}
+
 		// Back Button for Leaderboard screen
 		else if (game.gameState == STATE.Leaderboard) {
 			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
