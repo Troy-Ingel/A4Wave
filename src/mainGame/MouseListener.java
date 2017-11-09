@@ -109,12 +109,10 @@ public class MouseListener extends MouseAdapter {
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
 			if (mouseOver(mx, my, 100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
-				handler.object.clear();
-				game.gameState = STATE.Game;
-				handler.addObject(player);
+				game.gameState = STATE.PickPlayer;
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
-			} else if (mouseOver(mx, my, Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) { // The
+			} else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) { // The
 																								// leaderboard
 																								// has
 																								// been
@@ -123,11 +121,6 @@ public class MouseListener extends MouseAdapter {
 				game.gameState = STATE.Leaderboard;
 				// lb.Display();
 
-			}
-			// Pick a Player! Button
-			else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) {
-							game.gameState = STATE.PickPlayer;
-							System.out.println("Pick a player");
 			}
 
 			// Help Button
@@ -152,7 +145,7 @@ public class MouseListener extends MouseAdapter {
 
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
-			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 315, 100, 50)) {
+			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 415, 100, 50)) {
 				game.gameState = STATE.Menu;
 				return;
 			}
@@ -186,10 +179,6 @@ public class MouseListener extends MouseAdapter {
 						handler.object.clear();
 						game.gameState = STATE.Game;
 						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
-						game.gameState = STATE.Menu;
 						return;
 					}
 				}

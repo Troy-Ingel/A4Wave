@@ -47,6 +47,8 @@ public class Menu {
 	private String text8;
 	private String text9;
 	private String text10;
+	private String text11;
+	private String text12;
 	private String[] scores;
 	// public Leaderboard lb;
 
@@ -122,20 +124,13 @@ public class Menu {
 			// g.setColor(Color.white);
 			text2 = "Help";
 			g.drawString(text2, Game.WIDTH / 2 - getTextWidth(font, text2) / 2, Game.HEIGHT / 3);
-
-			// g.setColor(Color.white);
-			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100);
-			g.setFont(font);
-			// g.setColor(Color.white);
-			text10 = "Pick a Player!";
-			g.drawString(text10, Game.WIDTH / 4 + 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
 			
 			// g.setColor(Color.white);
-			g.drawRect(Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100);
+			g.drawRect(100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100);
 			g.setFont(font);
 			// g.setColor(Color.white);
 			text10 = "Leaderboard";
-			g.drawString(text10, 3 * Game.WIDTH / 4 - 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
+			g.drawString(text10, Game.WIDTH / 2 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
 
 			// g.setColor(Color.white);
 			g.drawRect(100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100);
@@ -165,10 +160,13 @@ public class Menu {
 			text6 = "Use arrow keys to avoid enemies. Avoid enemies long enough to rack up points and advance to the"
 					+ " next level!";
 			g.drawString(text6, Game.WIDTH / 2 - getTextWidth(font2, text6) / 2, 150);
+			text11 = "Capture the Golden Snitch to gain a speed boost!" + 
+			" Or capture the Chocolate Frog to regain some health!";
+			g.drawString(text11, Game.WIDTH / 2 - getTextWidth(font2, text11) / 2, 200);
 			text7 = "Defeat the boss on Level 11 to win an upgrade!";
-			g.drawString(text7, Game.WIDTH / 2 - getTextWidth(font2, text7) / 2, 200);
+			g.drawString(text7, Game.WIDTH / 2 - getTextWidth(font2, text7) / 2, 250);
 			text8 = "Ability upgrades are used by pressing Enter.";
-			g.drawString(text8, Game.WIDTH / 2 - getTextWidth(font2, text8) / 2, 250);
+			g.drawString(text8, Game.WIDTH / 2 - getTextWidth(font2, text8) / 2, 300);
 
 			// g.drawString("Waves: Simply use WASD to avoid enemies. Once you
 			// avoid" + " \n"
@@ -178,8 +176,8 @@ public class Menu {
 			g.setFont(font2);
 			g.setColor(Color.white);
 			text9 = "Back";
-			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 315, 100, 50);
-			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
+			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 415, 100, 50);
+			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 450);
 		}
 
 		else if (game.gameState == STATE.Leaderboard) { //This is the leaderboard rendering

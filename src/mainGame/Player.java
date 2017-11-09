@@ -26,7 +26,7 @@ public class Player extends GameObject {
 	private int damage;
 	private int playerWidth, playerHeight;
 	public static int playerSpeed = 10;
-	public int c;
+	public int characterId;
 
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
 		super(x, y, id);
@@ -128,7 +128,7 @@ public class Player extends GameObject {
 		// g.setColor(Color.white);
 		// g.fillRect((int) x, (int) y, playerWidth, playerHeight);
 
-		g.drawImage(setCharacter(c), (int) x, (int) y, playerWidth, playerHeight, null);
+		g.drawImage(getCharacter(characterId), (int) x, (int) y, playerWidth, playerHeight, null);
 	}
 
 	@Override
@@ -158,18 +158,22 @@ public class Player extends GameObject {
 	 * call this method from the MouseListener. 
 	 * 
 	 */
-	public Image setCharacter(int c) {
-		if (c == 1) {
+	public Image getCharacter(int characterId) {
+		if (characterId == 1) {
 			return getImage("images/player1.png");
-		} else if (c == 2) {
+		} else if (characterId == 2) {
 			return getImage("images/player2.png");
-		} else if (c == 3) {
+		} else if (characterId == 3) {
 			return getImage("images/player3.png");
-		} else if (c == 4) {
+		} else if (characterId == 4) {
 			return getImage("images/player4.png");
 		} else {
 			return getImage("images/player4.png");
 		} // why is it just going to the else statement?
+	}
+	
+	public void setCharacter(int id) {
+		characterId = id;
 	}
 
 	
