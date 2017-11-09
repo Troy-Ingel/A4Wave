@@ -152,7 +152,7 @@ public class Player extends GameObject {
 	 * What you want to do is change this method to public Image getCharacter().
 	 * keep the logic the same, and dont forget to update the method call in line 131 to getCharacter()
 	 * 
-	 * Rename the class variable int c to in characterId
+	 * Rename the class variable int c to int characterId
 	 * 
 	 * Create a new method called public void setCharacter(int id), which sets characterId = id.
 	 * call this method from the MouseListener. 
