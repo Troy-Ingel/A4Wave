@@ -44,8 +44,11 @@ public class MouseListener extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
+		//AudioPlayer.getSound("sound");
+		AudioPlayer.getMusic("music").stop();
 
 		if (game.gameState == STATE.GameOver) {
+			AudioPlayer.getSound("sound").play();
 			handler.clearEnemies();
 			handler.object.clear();
 			// upgrades.resetUpgrades();
@@ -58,22 +61,24 @@ public class MouseListener extends MouseAdapter {
 			// spawner2.addLevels();
 			// s Spawn1to10.LEVEL_SET = 1;
 			HighscoreManager hm = new HighscoreManager();
-			
-			
-			 JFrame frame = new JFrame("Enter Your Name");
 
-			 // prompt the user to enter their name
-			 String name = JOptionPane.showInputDialog(frame, "What's your name?");
+			JFrame frame = new JFrame("Enter Your Name");
 
-			 // get the user's input. note that if they press Cancel, 'name' will be null
-			 System.out.printf("The user's name is '%s'.\n", name);
-			 hm.addScore(name, hud.getScore());
-			System.out.println( " Name + " +  name + " hud = " + hud.getScore());
-			
+			// prompt the user to enter their name
+			String name = JOptionPane.showInputDialog(frame, "What's your name?");
+
+			// get the user's input. note that if they press Cancel, 'name' will
+			// be null
+			System.out.printf("The user's name is '%s'.\n", name);
+			hm.addScore(name, hud.getScore());
+			System.out.println(" Name + " + name + " hud = " + hud.getScore());
+
 			game.gameState = STATE.Menu;
+
 		}
 
 		else if (game.gameState == STATE.Game) {
+			AudioPlayer.getSound("sound").play();
 
 		}
 
@@ -108,35 +113,44 @@ public class MouseListener extends MouseAdapter {
 
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
+
 			if (mouseOver(mx, my, 100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
+
+				AudioPlayer.getSound("sound").play();
 				handler.object.clear();
 				game.gameState = STATE.Game;
 				handler.addObject(player);
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
+
 			} else if (mouseOver(mx, my, Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) { // The
-																								// leaderboard
-																								// has
-																								// been
-																								// clicked
+				// leaderboard
+				// has
+				// been
+				// clicked
 				System.out.println("Leaderboard Clicked?");
+				AudioPlayer.getSound("sound").play();
 				game.gameState = STATE.Leaderboard;
 				// lb.Display();
 
 			}
 			// Pick a Player! Button
 			else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100)) {
-							game.gameState = STATE.PickPlayer;
-							System.out.println("Pick a player");
+				AudioPlayer.getSound("sound").play();
+				;
+				game.gameState = STATE.PickPlayer;
+				System.out.println("Pick a player");
 			}
 
 			// Help Button
 			else if (mouseOver(mx, my, 100, Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
+				AudioPlayer.getSound("sound").play();
 				game.gameState = STATE.Help;
 			}
 
 			// Credits
 			else if (mouseOver(mx, my, 100, 2 * Game.HEIGHT / 3 - 65, Game.WIDTH - 200, 100)) {
+				AudioPlayer.getSound("sound").play();
 				JOptionPane.showMessageDialog(game,
 						"Made by Brandon Loehle for his "
 								+ "final project in AP Computer Science senior year, 2015 - 2016."
@@ -146,6 +160,7 @@ public class MouseListener extends MouseAdapter {
 
 			// Quit Button
 			else if (mouseOver(mx, my, 100, 5 * Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
+				AudioPlayer.getSound("sound").play();
 				System.exit(1);
 			}
 		}
@@ -153,54 +168,61 @@ public class MouseListener extends MouseAdapter {
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
 			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 315, 100, 50)) {
+				AudioPlayer.getSound("sound").play();
 				game.gameState = STATE.Menu;
 				return;
 			}
 		}
-		
+
 		// Back Button for Pick a Player! screen
-				else if (game.gameState == STATE.PickPlayer) {
-					if (mouseOver(mx, my, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(1);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(2);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(3);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
-						player.setCharacter(4);
-						handler.object.clear();
-						game.gameState = STATE.Game;
-						handler.addObject(player);
-						return;
-					}
-					if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
-						game.gameState = STATE.Menu;
-						return;
-					}
-				}
-		
+		else if (game.gameState == STATE.PickPlayer) {
+			if (mouseOver(mx, my, Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				AudioPlayer.getSound("sound").play();
+				player.setCharacter(1);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+			if (mouseOver(mx, my, 2 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				AudioPlayer.getSound("sound").play();
+				player.setCharacter(2);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+			if (mouseOver(mx, my, 3 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				AudioPlayer.getSound("sound").play();
+				player.setCharacter(3);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+			if (mouseOver(mx, my, 4 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				AudioPlayer.getSound("sound").play();
+				player.setCharacter(4);
+				handler.object.clear();
+				game.gameState = STATE.Game;
+				handler.addObject(player);
+				return;
+			}
+			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
+				AudioPlayer.getSound("sound").play();
+				game.gameState = STATE.Menu;
+				return;
+			}
+		}
+
 		// Back Button for Leaderboard screen
-				else if (game.gameState == STATE.Leaderboard) {
-					if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
-						game.gameState = STATE.Menu;
-						return;
-					}
-				}
+		else if (game.gameState == STATE.Leaderboard) {
+			if (mouseOver(mx, my, Game.WIDTH / 2 - 50, 3 * Game.HEIGHT / 4 + 25, 100, 50)) {
+				AudioPlayer.getSound("sound").play();
+				game.gameState = STATE.Menu;
+				return;
+			}
+		}
 	}
 
 	public void mouseReleased(MouseEvent e) {

@@ -54,7 +54,7 @@ public class Menu {
 		HighscoreManager hm = new HighscoreManager();
 		scores = new String[hm.getScores().size()];
 		for (int i = 0; i < hm.getScores().size(); i++) {
-			
+
 			scores[i] = hm.getHighscoreString(i);
 		}
 		this.game = game;
@@ -68,12 +68,14 @@ public class Menu {
 		background = null;
 		try {
 			background = ImageIO.read(new File("images/background.jpg"));
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		handler.addObject(new MenuFireworks((r.nextInt(Game.WIDTH) - 25), 500, 50, 50, 0, -2,
 				colorPick.get(r.nextInt(6)), ID.Firework, this.handler));
+		
 	}
 
 	public void addColors() {
@@ -129,7 +131,7 @@ public class Menu {
 			// g.setColor(Color.white);
 			text10 = "Pick a Player!";
 			g.drawString(text10, Game.WIDTH / 4 + 45 - getTextWidth(font, text10) / 2, Game.HEIGHT / 2);
-			
+
 			// g.setColor(Color.white);
 			g.drawRect(Game.WIDTH / 2 + 25, Game.HEIGHT / 2 - 65, Game.WIDTH / 2 - 125, 100);
 			g.setFont(font);
@@ -182,7 +184,8 @@ public class Menu {
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 350);
 		}
 
-		else if (game.gameState == STATE.Leaderboard) { //This is the leaderboard rendering
+		else if (game.gameState == STATE.Leaderboard) { // This is the
+														// leaderboard rendering
 			Font font = new Font("Apple Chancery", 1, 50);
 			Font font2 = new Font("Apple Chancery", 1, 25);
 			Font font3 = new Font("Apple Chancery", 1, 35);
@@ -197,15 +200,15 @@ public class Menu {
 			g.setFont(font3);
 			g.setColor(Color.white);
 			for (int i = 0; i < 5; i++) {
-				g.drawString(scores[i], Game.WIDTH / 2 - getTextWidth(font3,scores[i]) / 2, y); //1
+				g.drawString(scores[i], Game.WIDTH / 2 - getTextWidth(font3, scores[i]) / 2, y); // 1
 				y += 100;
 			}
-			
+
 			g.setFont(font2);
 			g.setColor(Color.white);
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 3 * Game.HEIGHT / 4 + 25, 100, 50);
-			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2,  3 * Game.HEIGHT / 4 + 60);
+			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 3 * Game.HEIGHT / 4 + 60);
 		}
 	}
 

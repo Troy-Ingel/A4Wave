@@ -51,8 +51,7 @@ public class Game extends Canvas implements Runnable {
 	};
 
 	/**
-	 * Initialize the core mechanics of the game
-	 * Evan
+	 * Initialize the core mechanics of the game Evan
 	 */
 	public Game() {
 		handler = new Handler();
@@ -147,17 +146,16 @@ public class Game extends Canvas implements Runnable {
 				spawner2.tick();
 			}
 		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard) {// user
-																		// is on
-																		// menu,
-																		// update
-																		// the
-																		// menu
-																		// items
+			// is on
+			// menu,
+			// update
+			// the
+			// menu
+			// items
 			menu.tick();
 		} else if (gameState == STATE.PickPlayer) {
 			pickPlayerScreen.tick();
-		}
-		else if (gameState == STATE.Upgrade) {// user is on upgrade screen,
+		} else if (gameState == STATE.Upgrade) {// user is on upgrade screen,
 												// update the upgrade screen
 			upgradeScreen.tick();
 		} else if (gameState == STATE.GameOver) {// game is over, update the
@@ -197,14 +195,14 @@ public class Game extends Canvas implements Runnable {
 		if (gameState == STATE.Game) {// user is playing game, draw game objects
 			hud.render(g);
 		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard) {// user
-																		// is in
-																		// help
-																		// or
-																		// the
-																		// menu,
-																		// draw
-																		// the
-																		// menu
+			// is in
+			// help
+			// or
+			// the
+			// menu,
+			// draw
+			// the
+			// menu
 			// and help objects
 			menu.render(g);
 		} else if (gameState == STATE.PickPlayer) {
@@ -216,7 +214,7 @@ public class Game extends Canvas implements Runnable {
 		} else if (gameState == STATE.GameOver) {// game is over, draw the game
 													// over screen
 			gameOver.render(g);
-			
+
 		}
 
 		///////// Draw things above this//////////////
@@ -247,11 +245,11 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		//HighscoreManager hm = new HighscoreManager();
+		// HighscoreManager hm = new HighscoreManager();
 		new Game();
-		
+		AudioPlayer.load();
+		AudioPlayer.getMusic("music").loop();
 
-		
 	}
 
 }
