@@ -198,7 +198,10 @@ public class Menu {
 
 			g.setFont(font3);
 			g.setColor(Color.white);
-			for (int i = 0; i < 5; i++) {
+			
+			int numScoresToShow = Math.min(5, scores.length);
+			
+			for (int i = 0; i < numScoresToShow; i++) {
 				g.drawString(scores[i], Game.WIDTH / 2 - getTextWidth(font3, scores[i]) / 2, y); // 1
 				y += 100;
 			}
