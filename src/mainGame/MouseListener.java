@@ -117,7 +117,7 @@ public class MouseListener extends MouseAdapter {
 
 			}
 			// Leaderboard Button
-			// Should be fixed now!
+			// Is this working?
 			else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) {
 				// The leaderboard has been clicked
 				AudioPlayer.getSound("sound").play();
