@@ -127,10 +127,9 @@ public class Spawn1to10 {
 				// J makes level 1 transition text disappear
 				// J adds pickups
 				handler.clearText();
-				handler.addObject(
-						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
-				 // handler.addObject(
-						 // new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				// Evan add choclate frogs (Health pickup) to level 1
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
 			}
 
 			if (levelTimer == 0) {// level is over
@@ -232,6 +231,8 @@ public class Spawn1to10 {
 			if (levelTimer == 750) {
 				// J makes level 5 transition text disappear
 				handler.clearText();
+				// Evan add choclate frogs (Health pickup) to level 3
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
 			}
 
 			if (levelTimer == 0) {
@@ -271,6 +272,8 @@ public class Spawn1to10 {
 			if (levelTimer == 750) {
 				// J makes level 4 transition text disappear
 				handler.clearText();
+				// Evan add golden snitch (Speed pickup) to level 4
+				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
 			}
 
 			if (levelTimer == 0) {
@@ -278,8 +281,8 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
-				// Player.playerSpeed = 10; // resets player speed
-
+				Player.playerSpeed = 10; // resets player speed
+				
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -356,6 +359,8 @@ public class Spawn1to10 {
 
 			if (levelTimer == 750) {
 				// J makes level transition text disappear
+				//Evan add speed pickup
+				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
 				handler.clearText();
 			}
 
@@ -364,7 +369,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 40;
 				tempCounter = 0;
-				// Player.playerSpeed = 10; // resets player speed
+				Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -411,6 +416,8 @@ public class Spawn1to10 {
 
 			if (levelTimer == 750) {
 				// J makes level 7 transition text disappear
+				// Evan adds health pickup
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
 				handler.clearText();
 			}
 
@@ -452,6 +459,8 @@ public class Spawn1to10 {
 
 			if (levelTimer == 750) {
 				// J makes level 10 transition text disappear
+				// Evan adds pickup speed
+				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
 				handler.clearText();
 			}
 
@@ -460,7 +469,7 @@ public class Spawn1to10 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
-				// Player.playerSpeed = 10; // resets player speed
+				Player.playerSpeed = 10; // resets player speed
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -492,6 +501,8 @@ public class Spawn1to10 {
 			if (levelTimer == 750) {
 				// J makes level 9 transition text disappear
 				handler.clearText();
+				// Evan add choclate frogs (Health pickup) to level 9
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
 			}
 
 			if (levelTimer == 0) {
