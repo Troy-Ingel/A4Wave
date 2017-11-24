@@ -57,7 +57,7 @@ public class Game extends Canvas implements Runnable {
 		handler = new Handler();
 		hud = new HUD();
 		spawner = new Spawn1to10(this.handler, this.hud, this);
-		spawner2 = new Spawn10to20(this.handler, this.hud, this.spawner, this);
+		spawner2 = new Spawn10to20(this.handler, this.hud, this);
 		menu = new Menu(this, this.handler, this.hud, this.spawner);
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
 		pickPlayerScreen = new PickAPlayerScreen(this, this.handler, this.hud);

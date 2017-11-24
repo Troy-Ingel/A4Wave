@@ -81,13 +81,13 @@ public class EnemyBoss extends GameObject {
 		g.drawLine(0, 138, Game.WIDTH, 138);
 		g.drawImage(img, (int) this.x, (int) this.y, 96, 96, null);
 
-		// HEALTH BAR
+/*		// HEALTH BAR
 		g.setColor(Color.GRAY);
 		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
 		g.setColor(Color.RED);
 		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, this.health, 50);
 		g.setColor(Color.WHITE);
-		g.drawRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
+		g.drawRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);*/
 
 	}
 
