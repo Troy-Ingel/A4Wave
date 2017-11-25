@@ -167,9 +167,17 @@ public class Player extends GameObject {
 			return getImage("images/player3.png");
 		} else if (characterId == 4) {
 			return getImage("images/player4.png");
+		}  else if (characterId == 5) {
+			return getImage("images/player5.png");
+		} else if (characterId == 6) {
+			return getImage("images/player6.png");
+		} else if (characterId == 7) {
+			return getImage("images/player7.png");
+		} else if (characterId == 8) {
+			return getImage("images/player8.png");
 		} else {
-			return getImage("images/player4.png");
-		} // why is it just going to the else statement?
+			return getImage("images/player1.png");
+		}
 	}
 	
 	public void setCharacter(int id) {

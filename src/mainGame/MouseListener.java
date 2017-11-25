@@ -148,30 +148,58 @@ public class MouseListener extends MouseAdapter {
 		}
 
 			else if (game.gameState == STATE.PickPlayer) {
-				if (mouseOver(mx, my, Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				if (mouseOver(mx, my, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280)) {
 					AudioPlayer.getSound("sound").play();
 					player.setCharacter(1);
 					handler.object.clear();
 					game.gameState = STATE.Game;
 					handler.addObject(player);
 				}
-				if (mouseOver(mx, my, 2 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				if (mouseOver(mx, my, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280)) {
 					AudioPlayer.getSound("sound").play();
 					player.setCharacter(2);
 					handler.object.clear();
 					game.gameState = STATE.Game;
 					handler.addObject(player);
 				}
-				if (mouseOver(mx, my, 3 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				if (mouseOver(mx, my, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280)) {
 					AudioPlayer.getSound("sound").play();
 					player.setCharacter(3);
 					handler.object.clear();
 					game.gameState = STATE.Game;
 					handler.addObject(player);
 				}
-				if (mouseOver(mx, my, 4 * Game.WIDTH / 5 - 100, Game.HEIGHT / 2 - 200, 200, 280)) {
+				if (mouseOver(mx, my, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280)) {
 					AudioPlayer.getSound("sound").play();
 					player.setCharacter(4);
+					handler.object.clear();
+					game.gameState = STATE.Game;
+					handler.addObject(player);
+				}
+				if (mouseOver(mx, my, Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280)) {
+					AudioPlayer.getSound("sound").play();
+					player.setCharacter(5);
+					handler.object.clear();
+					game.gameState = STATE.Game;
+					handler.addObject(player);
+				}
+				if (mouseOver(mx, my, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280)) {
+					AudioPlayer.getSound("sound").play();
+					player.setCharacter(6);
+					handler.object.clear();
+					game.gameState = STATE.Game;
+					handler.addObject(player);
+				}
+				if (mouseOver(mx, my, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280)) {
+					AudioPlayer.getSound("sound").play();
+					player.setCharacter(7);
+					handler.object.clear();
+					game.gameState = STATE.Game;
+					handler.addObject(player);
+				}
+				if (mouseOver(mx, my, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280)) {
+					AudioPlayer.getSound("sound").play();
+					player.setCharacter(8);
 					handler.object.clear();
 					game.gameState = STATE.Game;
 					handler.addObject(player);

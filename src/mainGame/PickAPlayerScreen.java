@@ -23,6 +23,10 @@ public class PickAPlayerScreen {
 	private BufferedImage player2;
 	private BufferedImage player3;
 	private BufferedImage player4;
+	private BufferedImage player5;
+	private BufferedImage player6;
+	private BufferedImage player7;
+	private BufferedImage player8;
 
 	public PickAPlayerScreen(Game game, Handler handler, HUD hud) {
 		this.game = game;
@@ -67,10 +71,40 @@ public class PickAPlayerScreen {
 		e.printStackTrace();
 	}
 	
-	g.drawImage(player1, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
-	g.drawImage(player2, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
-	g.drawImage(player3, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
-	g.drawImage(player4, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 140, 200, 280, null);
+	player5 = null;
+	try {
+		player5 = ImageIO.read(new File("images/player5option.png"));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	player6 = null;
+	try {
+		player6 = ImageIO.read(new File("images/player6option.png"));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	player7 = null;
+	try {
+		player7 = ImageIO.read(new File("images/player7option.png"));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	player8 = null;
+	try {
+		player8 = ImageIO.read(new File("images/player8option.png"));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	g.drawImage(player1, Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280, null);
+	g.drawImage(player2, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280, null);
+	g.drawImage(player3, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280, null);
+	g.drawImage(player4, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 - 300, 200, 280, null);
+	
+	g.drawImage(player5, Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280, null);
+	g.drawImage(player6, 2*Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280, null);
+	g.drawImage(player7, 3*Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280, null);
+	g.drawImage(player8, 4*Game.WIDTH/5 - 100, Game.HEIGHT / 2 + 50, 200, 280, null);
 	
 	}
 	
