@@ -248,6 +248,7 @@ public class Game extends Canvas implements Runnable {
 		// HighscoreManager hm = new HighscoreManager();
 		new Game();
 		AudioPlayer.load();
+	//	AudioPlayer.getNaruto("naruto").play();
 		AudioPlayer.getMusic("music").loop();
 
 	}

@@ -100,7 +100,8 @@ public class Spawn1to10 {
 		 * 
 		 */
 		else if (levelNumber == 1 && list.getItem(0) == 1) {// this is level 1
-
+			AudioPlayer.getMusic("music").stop();
+			//AudioPlayer.getNaruto("naruto").play();
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
 							// second
 			levelTimer--;// keep decrementing the level spawnTimer 60 times a
@@ -109,11 +110,13 @@ public class Spawn1to10 {
 									// to how long we want this level to
 									// run for
 				handler.addObject(new LevelText(15, 600, "LEVEL 1", ID.Levels1to10Text));
+				AudioPlayer.load();
+				AudioPlayer.getNaruto("naruto").play();
 				// J's level transition text
 				levelTimer = 1000; // 2000 / 60 method calls a second = 33.33
 									// seconds long
 				tempCounter++; // ensures the method is only called once
-			} // end if
+					} // end if
 
 			if (spawnTimer == 0) { // time to spawn another enemy
 				handler.addObject(
@@ -127,8 +130,10 @@ public class Spawn1to10 {
 				// J adds pickups
 				handler.clearText();
 				// Evan adds speed and health pickups
-				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(
+						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 			}
 
 			if (levelTimer == 0) {// level is over
@@ -231,7 +236,8 @@ public class Spawn1to10 {
 				// J makes level 5 transition text disappear
 				handler.clearText();
 				// Evan adds health pickup
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 			}
 
 			if (levelTimer == 0) {
@@ -272,7 +278,8 @@ public class Spawn1to10 {
 				// J makes level 4 transition text disappear
 				handler.clearText();
 				// Evan adds speed pickup
-				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				handler.addObject(
+						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
 			}
 
 			if (levelTimer == 0) {
@@ -281,7 +288,7 @@ public class Spawn1to10 {
 				spawnTimer = 10;
 				tempCounter = 0;
 				Player.playerSpeed = 10; // resets player speed
-				
+
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -318,7 +325,8 @@ public class Spawn1to10 {
 				// J makes level 8 transition text disappear
 				handler.clearText();
 				// Evan adds health pickup
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 			}
 
 			if (levelTimer == 0) {
@@ -360,8 +368,9 @@ public class Spawn1to10 {
 
 			if (levelTimer == 750) {
 				// J makes level transition text disappear
-				//Evan add speed pickup
-				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				// Evan add speed pickup
+				handler.addObject(
+						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
 				handler.clearText();
 			}
 
@@ -418,8 +427,10 @@ public class Spawn1to10 {
 			if (levelTimer == 750) {
 				// J makes level 7 transition text disappear
 				// Evan adds health and speed pickups
-				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(
+						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 				handler.clearText();
 			}
 
@@ -462,7 +473,8 @@ public class Spawn1to10 {
 			if (levelTimer == 750) {
 				// J makes level 10 transition text disappear
 				// Evan adds pickup speed
-				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				handler.addObject(
+						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
 				handler.clearText();
 			}
 
@@ -504,7 +516,8 @@ public class Spawn1to10 {
 				// J makes level 9 transition text disappear
 				handler.clearText();
 				// Evan adds health pickup
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 			}
 
 			if (levelTimer == 0) {
