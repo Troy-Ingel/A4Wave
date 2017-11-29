@@ -482,12 +482,9 @@ public class Spawn10to20 {
 										// number for
 										// the boss
 			if (tempCounter < 1) {
+				// J adds level transition
 				handler.addObject(new LevelText(15, 600, "BOSS LEVEL", ID.Levels1to10Text));
-				// J's level transition text
-				tempCounter++;
-			} // end if
-
-			else if (tempCounter >= 1) {
+				// BOSS CODE
 				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 1));
 				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 2));
 				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 3));
@@ -498,7 +495,7 @@ public class Spawn10to20 {
 				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 8));
 				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 9));
 				tempCounter++;
-			} // end else if
+			} // end if
 
 		} // end else if
 
