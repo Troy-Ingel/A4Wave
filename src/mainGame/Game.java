@@ -28,6 +28,7 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private boolean running = false;
+	public static boolean paused = false;
 
 	private Handler handler;
 	private HUD hud;
@@ -47,7 +48,7 @@ public class Game extends Canvas implements Runnable {
 	 * Used to switch between each of the screens shown to the user
 	 */
 	public enum STATE {
-		Menu, Help, Game, GameOver, Upgrade, Leaderboard, PickPlayer
+		Menu, Pause, Help, Game, GameOver, Upgrade, Leaderboard, PickPlayer
 	};
 
 	/**
@@ -135,15 +136,19 @@ public class Game extends Canvas implements Runnable {
 	 * health, appearance, etc).
 	 */
 	private void tick() {
-		handler.tick();// ALWAYS TICK HANDLER, NO MATTER IF MENU OR GAME SCREEN
 		if (gameState == STATE.Game) {// game is running
-			hud.tick();
-			if (Spawn1to10.LEVEL_SET == 1) {// user is on levels 1 thru 10,
-											// update them
-				spawner.tick();
-			} else if (Spawn1to10.LEVEL_SET == 2) {// user is on levels 10 thru
-													// 20, update them
-				spawner2.tick();
+			
+			if(!paused) { //Do not pause
+				handler.tick();// ALWAYS TICK HANDLER, NO MATTER IF MENU OR GAME SCREEN
+				hud.tick();
+				if (Spawn1to10.LEVEL_SET == 1) {// user is on levels 1 thru 10,
+												// update them
+					spawner.tick();
+				} else if (Spawn1to10.LEVEL_SET == 2) {// user is on levels 10 thru
+														// 20, update them
+					spawner2.tick();
+				}
+				gameState = STATE.Game;
 			}
 		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard) {// user
 			// is on
@@ -194,7 +199,7 @@ public class Game extends Canvas implements Runnable {
 
 		if (gameState == STATE.Game) {// user is playing game, draw game objects
 			hud.render(g);
-		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard) {// user
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard || gameState == STATE.Pause) {// user
 			// is in
 			// help
 			// or

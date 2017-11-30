@@ -32,6 +32,7 @@ public class Menu {
 	private Handler handler;
 	private HUD hud;
 	private BufferedImage background;
+	private BufferedImage bg;
 	private int timer;
 	private Random r;
 	private ArrayList<Color> colorPick = new ArrayList<Color>();
@@ -70,6 +71,7 @@ public class Menu {
 		background = null;
 		try {
 			background = ImageIO.read(new File("images/background.jpg"));
+			bg = ImageIO.read(new File("images/blackBG.jpg"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -211,6 +213,18 @@ public class Menu {
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 3 * Game.HEIGHT / 4 + 25, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 3 * Game.HEIGHT / 4 + 60);
+		}
+		else if(game.gameState == STATE.Pause) {
+			g.drawImage(bg, 0, 0, Game.WIDTH, Game.HEIGHT, null);
+			
+			//g.drawRect(0	, 0, game.WIDTH, game.HEIGHT);
+			
+			
+
+			System.out.println("Paused");
+			Font font = new Font("Apple Chancery", 1, 50);
+			g.drawString("Paused", (int)(game.WIDTH / 2 - getTextWidth(font,"Paused")),(int)(game.HEIGHT/2));
+
 		}
 	}
 
