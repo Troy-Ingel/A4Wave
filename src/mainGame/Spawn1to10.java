@@ -171,6 +171,7 @@ public class Spawn1to10 {
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 2", ID.Levels1to10Text));
 				AudioPlayer.getlevel1("level1").stop();
+				AudioPlayer.getwhip("whip").play();
 				// J's level transition text
 				levelTimer = 1000; // level 2 was previously twice the length of
 									// level 1...
