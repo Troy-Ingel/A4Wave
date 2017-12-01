@@ -42,8 +42,9 @@ public class MenuFireworks extends GameObject {
 	}
 
 	public void render(Graphics g) {
-		g.setColor(this.color);
-		g.fillOval((int) this.x, (int) this.y, sizeX, sizeY);
+		// removes fireworks
+		/*g.setColor(this.color);
+		g.fillOval((int) this.x, (int) this.y, sizeX, sizeY);*/
 	}
 
 	public void tick() {
