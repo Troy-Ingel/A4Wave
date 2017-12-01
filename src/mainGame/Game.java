@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// import
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,18 +13,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * Main game class. This class is the driver class and it follows the Holder
- * pattern. It houses references to ALL of the components of the gameeee
+ * Main game class
+ * Desc: This class is the driver class and it follows the Holder
+ * pattern. It houses references to ALL of the components of the game
  * 
- * @author Brandon Loehle 5/30/16
+ * Team A4 Update Nov. 30th, 2017
  */
 
+// game class, extends canvas
 public class Game extends Canvas implements Runnable {
-
+	
+	// serialVersion
 	private static final long serialVersionUID = 1L;
 
 	// EVAN CHANGES: will first use toolkit to find the screen size, then will
-	// set width and height to sooo
+	// set width and height to screen of user
 	private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public static final int WIDTH = (int) screenSize.getWidth(), HEIGHT = (int) screenSize.getHeight();
 
@@ -52,8 +57,10 @@ public class Game extends Canvas implements Runnable {
 	};
 
 	/**
-	 * Initialize the core mechanics of the game Evan
+	 * Initialize the core mechanics of the game 
 	 */
+	
+	// Game class
 	public Game() {
 		handler = new Handler();
 		hud = new HUD();
@@ -77,12 +84,14 @@ public class Game extends Canvas implements Runnable {
 	 * The thread is simply a programs path of execution. This method ensures
 	 * that this thread starts properly.
 	 */
+	
+	// Start function
 	public synchronized void start() {
 		thread = new Thread(this);
 		thread.start();
 		running = true;
 	}
-
+	 // Stop function
 	public synchronized void stop() {
 		try {
 			thread.join();
