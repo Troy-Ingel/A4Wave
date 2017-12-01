@@ -96,6 +96,20 @@ public class KeyInput extends KeyAdapter {
 						upgrades.freezeTimeAbility();
 					}
 				}
+				if(key == KeyEvent.VK_P) {
+					
+					if(game.gameState == STATE.Game) { //GAME IS RUNNING
+						game.gameState = STATE.Pause;
+					}
+					else { //GAME IS NOT RUNNING (so make it run)
+						
+						game.gameState = STATE.Game; 
+					}
+					
+					
+					// if (key == KeyEvent.VK_ESCAPE) System.exit(1);
+				}
+
 
 			}
 
