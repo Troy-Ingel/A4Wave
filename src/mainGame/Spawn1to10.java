@@ -101,7 +101,7 @@ public class Spawn1to10 {
 		 */
 		else if (levelNumber == 1 && list.getItem(0) == 1) {// this is level 1
 			AudioPlayer.getMusic("music").stop();
-			//AudioPlayer.getNaruto("naruto").play();
+			// AudioPlayer.getNaruto("naruto").play();
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
 							// second
 			levelTimer--;// keep decrementing the level spawnTimer 60 times a
@@ -111,12 +111,13 @@ public class Spawn1to10 {
 									// run for
 				handler.addObject(new LevelText(15, 600, "LEVEL 1", ID.Levels1to10Text));
 				AudioPlayer.load();
-				AudioPlayer.getNaruto("naruto").play();
+				// AudioPlayer.getNaruto("naruto").play();
+				AudioPlayer.getlevel1("level1").play();
 				// J's level transition text
 				levelTimer = 1000; // 2000 / 60 method calls a second = 33.33
 									// seconds long
 				tempCounter++; // ensures the method is only called once
-					} // end if
+			} // end if
 
 			if (spawnTimer == 0) { // time to spawn another enemy
 				handler.addObject(
@@ -169,6 +170,7 @@ public class Spawn1to10 {
 			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 2", ID.Levels1to10Text));
+				AudioPlayer.getlevel1("level1").stop();
 				// J's level transition text
 				levelTimer = 1000; // level 2 was previously twice the length of
 									// level 1...
