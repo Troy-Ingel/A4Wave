@@ -101,6 +101,7 @@ public class Spawn1to10 {
 		 */
 		else if (levelNumber == 1 && list.getItem(0) == 1) {// this is level 1
 			AudioPlayer.getMusic("music").stop();
+
 			// AudioPlayer.getNaruto("naruto").play();
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
 							// second
@@ -112,7 +113,9 @@ public class Spawn1to10 {
 				handler.addObject(new LevelText(15, 600, "LEVEL 1", ID.Levels1to10Text));
 				AudioPlayer.load();
 				// AudioPlayer.getNaruto("naruto").play();
-				AudioPlayer.getlevel1("level1").play();
+				AudioPlayer.getlevel2("level2").loop();
+				;
+				// AudioPlayer.getlevel1("level1").play();
 				// J's level transition text
 				levelTimer = 1000; // 2000 / 60 method calls a second = 33.33
 									// seconds long
@@ -141,6 +144,8 @@ public class Spawn1to10 {
 				handler.clearEnemies();// clear the enemies
 				hud.setLevel(hud.getLevel() + 1);// Increment level number on
 													// HUD
+				// AudioPlayer.gettransition("transition").play();
+
 				spawnTimer = 40;
 				tempCounter = 0;// reset tempCounter
 				Player.playerSpeed = 10; // resets player speed
@@ -151,6 +156,7 @@ public class Spawn1to10 {
 						// list.removeItem(0);
 					list.getItem(1);
 					levelNumber++;
+					// AudioPlayer.gettransition("transition").play();
 
 					/*
 					 * levels.remove(index);// remove the current level from
@@ -170,8 +176,9 @@ public class Spawn1to10 {
 			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 2", ID.Levels1to10Text));
-				AudioPlayer.getlevel1("level1").stop();
-				AudioPlayer.getwhip("whip").play();
+				// AudioPlayer.getlevel2("level2").loop();
+				// AudioPlayer.getlevel1("level1").stop();
+				// AudioPlayer.getwhip("whip").play();
 				// J's level transition text
 				levelTimer = 1000; // level 2 was previously twice the length of
 									// level 1...
@@ -355,10 +362,12 @@ public class Spawn1to10 {
 		else if (levelNumber == 6 && list.getItem(5) == 6) {
 			spawnTimer--;
 			levelTimer--;
+			AudioPlayer.getlevel2("level2").stop();
 			// handler.addObject(new LevelText(15, 600, "This is Level 6",
 			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 6", ID.Levels1to10Text));
+				AudioPlayer.getlevel3("level3").loop();
 				// J's level 6 transition text
 				levelTimer = 1000; // level 6 was 1500?
 				tempCounter++;

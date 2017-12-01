@@ -55,12 +55,11 @@ public class GameOver {
 		g.setFont(font2);
 		text = "Click anywhere to play again";
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 + 150);
+		AudioPlayer.getwasted("wasted").play();
+		// lb.setScore(0, hud.getScore());
+		// hm.addScore("Michael Woo", hud.getScore());
 
-		//lb.setScore(0, hud.getScore());
-		//hm.addScore("Michael Woo", hud.getScore());
-		
 	}
-	
 
 	public void flash() {
 		timer--;
