@@ -112,7 +112,6 @@ public class Spawn1to10 {
 									// run for
 				handler.addObject(new LevelText(15, 600, "LEVEL 1", ID.Levels1to10Text));
 				AudioPlayer.load();
-				// AudioPlayer.getNaruto("naruto").play();
 				AudioPlayer.getlevel2("level2").loop();
 				;
 				// AudioPlayer.getlevel1("level1").play();
@@ -156,7 +155,6 @@ public class Spawn1to10 {
 						// list.removeItem(0);
 					list.getItem(1);
 					levelNumber++;
-					// AudioPlayer.gettransition("transition").play();
 
 					/*
 					 * levels.remove(index);// remove the current level from
@@ -170,16 +168,16 @@ public class Spawn1to10 {
 		} // end else if
 
 		else if (levelNumber == 2) {
+
 			spawnTimer--;
 			levelTimer--;
 			// handler.addObject(new LevelText(15, 600, "This is Level 2",
 			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(15, 600, "LEVEL 2", ID.Levels1to10Text));
-				// AudioPlayer.getlevel2("level2").loop();
-				// AudioPlayer.getlevel1("level1").stop();
-				// AudioPlayer.getwhip("whip").play();
+
 				// J's level transition text
+
 				levelTimer = 1000; // level 2 was previously twice the length of
 									// level 1...
 				tempCounter++;
@@ -310,17 +308,21 @@ public class Spawn1to10 {
 					 */
 					list.getItem(4);
 					levelNumber++;
+
 				} // end else
 			} // end if
 		} // end else if
 
 		else if (levelNumber == 5 && list.getItem(4) == 5) {
+
 			spawnTimer--;
 			levelTimer--;
 			// handler.addObject(new LevelText(15, 600, "This is Level 8",
 			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
+
 				handler.addObject(new LevelText(15, 600, "LEVEL 5", ID.Levels1to10Text));
+
 				// J's level 8 transition text
 				levelTimer = 1000;
 				tempCounter++;
@@ -362,12 +364,13 @@ public class Spawn1to10 {
 		else if (levelNumber == 6 && list.getItem(5) == 6) {
 			spawnTimer--;
 			levelTimer--;
-			AudioPlayer.getlevel2("level2").stop();
+
 			// handler.addObject(new LevelText(15, 600, "This is Level 6",
 			// ID.Levels1to10Text));
 			if (tempCounter < 1) {
+
 				handler.addObject(new LevelText(15, 600, "LEVEL 6", ID.Levels1to10Text));
-				AudioPlayer.getlevel3("level3").loop();
+				// AudioPlayer.getlevel3("level3").loop();
 				// J's level 6 transition text
 				levelTimer = 1000; // level 6 was 1500?
 				tempCounter++;
