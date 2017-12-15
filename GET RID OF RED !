@@ -1,0 +1,14 @@
+Instructions how to get rid of the red ! on the project
+
+right click on project
+scroll down to build path
+configure build path
+delete red jars
+add external JARs from Libs
+click arrow next to A4Wave/red (class folder)
+edit Native library location
+External Folder…
+go to Libs > lwjgl > native > your OS
+Open
+Apply
+OK
