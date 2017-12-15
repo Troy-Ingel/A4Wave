@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -11,12 +13,14 @@ import java.util.Random;
 /**
  * This is the text you see before each set of 10 levels
  * 
- * @author Brandon Loehle 5/30/16
+ * @author // when the big circle breaks into a bunch of smaller ones
  *
  */
 
+// class
 public class LevelText extends GameObject {
 
+	// instance variable
 	private String text;
 	private int timer;
 	private Color[] color = { Color.WHITE, Color.RED, Color.BLUE, Color.CYAN, Color.GREEN, Color.MAGENTA, Color.ORANGE,
@@ -24,6 +28,7 @@ public class LevelText extends GameObject {
 	private Random r = new Random();
 	private int index;
 
+	// constructor
 	public LevelText(double x, double y, String text, ID id) {
 		super(x, y, id);
 		this.text = text;
@@ -31,11 +36,15 @@ public class LevelText extends GameObject {
 		timer = 15;
 	}
 
+	// instance methods
+
+	// tick
 	@Override
 	public void tick() {
 
 	}
 
+	// render
 	@Override
 	public void render(Graphics g) {
 		timer--;
@@ -53,6 +62,7 @@ public class LevelText extends GameObject {
 
 	}
 
+	// get text width
 	public int getTextWidth(Font font, String text) {
 		AffineTransform affinetransform = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(affinetransform, true, true);
@@ -60,6 +70,7 @@ public class LevelText extends GameObject {
 		return textWidth;
 	}
 
+	// get bounds - rectangle
 	@Override
 	public Rectangle getBounds() {
 		// TODO Auto-generated method stub

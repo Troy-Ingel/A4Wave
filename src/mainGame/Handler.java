@@ -1,14 +1,18 @@
+// package
 package mainGame;
 
-import java.awt.Graphics;
+// imports
+import java.awt.Graphics; 
 import java.util.ArrayList;
 
 /**
  * Class used for containing every instance of GameObject. These include all
  * enemies and players
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  */
+
+// class
 public class Handler {
 
 	ArrayList<GameObject> object = new ArrayList<GameObject>();
@@ -52,14 +56,17 @@ public class Handler {
 
 	}
 
+	// pause
 	public void pause() {
 		timer = 1000;
 	}
 
+	// add object
 	public void addObject(GameObject object) {
 		this.object.add(object);
 	}
 
+	// remove object
 	public void removeObject(GameObject object) {
 		this.object.remove(object);
 	}
@@ -77,6 +84,7 @@ public class Handler {
 		}
 	}
 	
+	// clear text
 	public void clearText() {
 		// J's method that clears level transitions
 		for (int i = 0; i < this.object.size(); i++) {
@@ -88,6 +96,7 @@ public class Handler {
 		}
 	}
 	
+	// clear pickup health
 	public void clearPickupHealth() {
 		for (int i = 0; i < this.object.size(); i++) {
 			GameObject tempObject = this.object.get(i);
@@ -99,6 +108,7 @@ public class Handler {
 		}
 	}
 	
+	// clear pickup speed
 	public void clearPickupSpeed() {
 		for (int i = 0; i < this.object.size(); i++) {
 			GameObject tempObject = this.object.get(i);

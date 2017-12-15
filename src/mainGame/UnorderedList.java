@@ -1,7 +1,9 @@
+// package
 package mainGame;
 
+// class
 public class UnorderedList {
-	// Author: Michael Woo
+	// Author: Michael Woo, Team A4
 	/*
 	 * Instance Variables
 	 */

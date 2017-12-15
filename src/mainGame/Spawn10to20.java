@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+//imports
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.font.FontRenderContext;
@@ -8,19 +10,20 @@ import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
 import mainGame.Game.STATE;
 
 /**
  * This class closely resembles Spawn1to10. Please refer to that class for
  * documentation
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class Spawn10to20 {
 
+	// instance variables
 	public static int LEVEL_SET = 2;
 	private Handler handler;
 	private HUD hud;
@@ -36,6 +39,7 @@ public class Spawn10to20 {
 	private int levelNumber = 0;
 	private int tempCounter = 0;
 
+	// constructor
 	public Spawn10to20(Handler handler, HUD hud, Game game) {
 		this.handler = handler;
 		this.hud = hud;
@@ -52,6 +56,8 @@ public class Spawn10to20 {
 		list.display();
 
 	}// end of Spawn10to20
+
+	// instance methods
 
 	/**
 	 * Pre-load every level
@@ -168,8 +174,8 @@ public class Spawn10to20 {
 				// J makes level transition text disappear
 				// J adds health pickup
 				handler.clearText();
-				handler.addObject(
-						new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 			}
 
 			if (levelTimer == 0) {
@@ -234,7 +240,8 @@ public class Spawn10to20 {
 				// J makes level transition text disappear
 				// J adds health pickup
 				handler.clearText();
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 			}
 
 			if (levelTimer == 0) {
@@ -242,7 +249,7 @@ public class Spawn10to20 {
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
 				tempCounter = 0;
-				
+
 				if (levelsRemaining == 1) {
 					levelNumber = 11;
 				} // end if
@@ -287,7 +294,7 @@ public class Spawn10to20 {
 				} // end else
 			} // end if
 		} // end else if
-		
+
 		else if (levelNumber == 6 && list.getItem(5) == 6) {
 			spawnTimer--;
 			levelTimer--;
@@ -306,7 +313,8 @@ public class Spawn10to20 {
 			if (levelTimer == 750) {
 				// J makes level transition text disappear
 				// J adds health pickup
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 				handler.clearText();
 			}
 
@@ -388,7 +396,8 @@ public class Spawn10to20 {
 			if (levelTimer == 750) {
 				// J makes level transition text disappear
 				// J adds health pickup
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
 				handler.clearText();
 			}
 
@@ -459,8 +468,10 @@ public class Spawn10to20 {
 				// J makes level transition text disappear
 				// J adds health and speed pickups
 				handler.clearText();
-				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth, handler));
-				handler.addObject(new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
+				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
+						handler));
+				handler.addObject(
+						new PickupSpeed(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupSpeed, handler));
 			}
 
 			if (levelTimer == 0) {
@@ -501,6 +512,7 @@ public class Spawn10to20 {
 
 	}// end tick()
 
+	// skip level
 	public void skipLevel() {
 		if (levelsRemaining == 1) {
 			tempCounter = 0;
@@ -512,6 +524,7 @@ public class Spawn10to20 {
 		} // end else if
 	}// end skipLevel
 
+	// restart
 	public void restart() {
 		levelNumber = -10;
 		tempCounter = 0;
@@ -522,6 +535,7 @@ public class Spawn10to20 {
 
 	}// end restart()
 
+	// get text width
 	public int getTextWidth(Font font, String text) {
 		AffineTransform at = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(at, true, true);

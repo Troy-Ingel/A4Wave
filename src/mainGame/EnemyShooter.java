@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// import
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -7,12 +9,14 @@ import java.awt.Rectangle;
 /**
  * A type of enemy in the game
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class EnemyShooter extends GameObject {
 
+	// instance variables
 	private Handler handler;
 	private int sizeX;
 	private int sizeY;
@@ -22,6 +26,7 @@ public class EnemyShooter extends GameObject {
 	private double bulletVelY;
 	private int bulletSpeed;
 
+	// constructor
 	public EnemyShooter(double x, double y, int sizeX, int sizeY, int bulletSpeed, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -38,6 +43,9 @@ public class EnemyShooter extends GameObject {
 		}
 	}
 
+	// instance methods
+
+	// tick
 	public void tick() {
 		this.x += velX;
 		this.y += velY;
@@ -58,6 +66,7 @@ public class EnemyShooter extends GameObject {
 
 	}
 
+	// shoot
 	public void shoot() {
 		double diffX = this.x - player.getX() - 16;
 		double diffY = this.y - player.getY() - 16;
@@ -72,6 +81,7 @@ public class EnemyShooter extends GameObject {
 				new EnemyShooterBullet(this.x, this.y, bulletVelX, bulletVelY, ID.EnemyShooterBullet, this.handler));
 	}
 
+	// update enemy
 	public void updateEnemy() {
 		this.sizeX--;
 		this.sizeY--;
@@ -81,15 +91,18 @@ public class EnemyShooter extends GameObject {
 		}
 	}
 
+	// render
 	public void render(Graphics g) {
 		g.setColor(Color.yellow);
 		g.fillRect((int) x, (int) y, this.sizeX, this.sizeY);
 
 	}
 
+	// rectangle - get bounds
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, this.sizeX, this.sizeY);
 	}
 
 }
+

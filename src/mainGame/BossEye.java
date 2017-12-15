@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,12 +15,13 @@ import java.util.Random;
 /**
  * The last boss in the game, shown in a 3x3 grid of 9 instances of BossEye
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class BossEye extends GameObject {
-
+	// instance variables
 	private Image img;
 	private Random r = new Random();;
 	private float alpha = 0;
@@ -32,6 +35,7 @@ public class BossEye extends GameObject {
 	private GameObject player;
 	private Handler handler;
 
+	// constructor
 	public BossEye(double x, double y, ID id, Handler handler, int placement) {
 		super(x, y, id);
 		this.img = getImage("images/dementor.png");
@@ -43,6 +47,8 @@ public class BossEye extends GameObject {
 		this.timer = 200;
 	}
 
+	// instance methods
+	// tick
 	public void tick() {
 		if (tempCounter == 0) {
 			if (alpha < 0.995) {// this handles each eye fading in to the game
@@ -81,6 +87,7 @@ public class BossEye extends GameObject {
 
 	}
 
+	// spawn
 	public void spawn() {
 		timer--;
 		if (timer == 0) {
@@ -89,6 +96,7 @@ public class BossEye extends GameObject {
 		}
 	}
 
+	// attack player
 	public void attackPlayer() {
 		if (player != null) {
 			double diffY = (this.y - player.getY());
@@ -102,6 +110,7 @@ public class BossEye extends GameObject {
 		}
 	}
 
+	// render
 	public void render(Graphics g) {
 		if (g.getColor() == Color.BLACK) {// prevent black text from showing "Game Over" if the player dies here, or
 											// "Winner!" if the player survives
@@ -113,16 +122,19 @@ public class BossEye extends GameObject {
 		g2d.setComposite(makeTransparent(1));
 	}
 
+	// alpha composite
 	private AlphaComposite makeTransparent(float alpha) {
 		int type = AlphaComposite.SRC_OVER;
 		return (AlphaComposite.getInstance(type, alpha));
 
 	}
 
+	// get bounds rectangle
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, (int) this.img.getWidth(null), (int) this.img.getHeight(null));
 	}
 
+	// get image
 	public Image getImage(String path) {
 		Image image = null;
 		try {

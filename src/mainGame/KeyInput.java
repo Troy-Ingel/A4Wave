@@ -1,19 +1,22 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;import java.util.Arrays;
-
+import java.awt.event.KeyEvent;
+import java.util.Arrays;
 import mainGame.Game.STATE;
 
 /**
  * Handles key input from the user
  * 
- * @author Brandon Loehle 5/30/16
+ * @author @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class KeyInput extends KeyAdapter {
-
+	// instance variables
 	private Handler handler;
 	private boolean[] keyDown = new boolean[5];
 	private int speed;
@@ -25,6 +28,7 @@ public class KeyInput extends KeyAdapter {
 	private String ability;
 	// private UnorderedList list = new UnorderedList(10);
 
+	// constructor
 	// uses current handler created in Game as parameter
 	public KeyInput(Handler handler, Game game, HUD hud, Player player, Spawn1to10 spawner, Upgrades upgrades) {
 		this.handler = handler;
@@ -42,6 +46,8 @@ public class KeyInput extends KeyAdapter {
 
 	}
 
+	// instance methods
+	// ket pressed
 	public void keyPressed(KeyEvent e) {
 		System.out.println("Event " + e.getKeyChar());
 		int key = e.getKeyCode();
@@ -75,16 +81,16 @@ public class KeyInput extends KeyAdapter {
 					tempObject.setVelX(this.speed);
 					keyDown[3] = true;
 				}
-				if (key == KeyEvent.VK_SPACE) { //comment the skip level out and reset health() back in 
+				if (key == KeyEvent.VK_SPACE) { // comment the skip level out and reset health() back in
 					upgrades.levelSkipAbility();
 					// hud.resetHealth();
-				//	Spawn1to10.LEVEL_SET = 10;
-				//	handler.clearEnemies();
-					//hud.setLevel(11);
+					// Spawn1to10.LEVEL_SET = 10;
+					// handler.clearEnemies();
+					// hud.setLevel(11);
 					// Spawn1to10.LEVEL_SET = 11;
 					// upgrades.levelSkipAbility();
 					// hud.setLevel(11);
-				;
+					;
 				}
 				if (key == KeyEvent.VK_ENTER) {
 					ability = upgrades.getAbility();
@@ -96,20 +102,17 @@ public class KeyInput extends KeyAdapter {
 						upgrades.freezeTimeAbility();
 					}
 				}
-				if(key == KeyEvent.VK_P) {
-					
-					if(game.gameState == STATE.Game) { //GAME IS RUNNING
+				if (key == KeyEvent.VK_P) {
+
+					if (game.gameState == STATE.Game) { // GAME IS RUNNING
 						game.gameState = STATE.Pause;
+					} else { // GAME IS NOT RUNNING (so make it run)
+
+						game.gameState = STATE.Game;
 					}
-					else { //GAME IS NOT RUNNING (so make it run)
-						
-						game.gameState = STATE.Game; 
-					}
-					
-					
+
 					// if (key == KeyEvent.VK_ESCAPE) System.exit(1);
 				}
-
 
 			}
 
@@ -117,6 +120,7 @@ public class KeyInput extends KeyAdapter {
 
 	}
 
+	// key released
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 
@@ -150,3 +154,4 @@ public class KeyInput extends KeyAdapter {
 	}
 
 }
+

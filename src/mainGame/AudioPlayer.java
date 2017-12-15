@@ -1,12 +1,19 @@
+// Team A4 | Last Edit Date: Dec. 11, 2017
+// covers the audio player running within the game
+
+// package
 package mainGame;
 
+// import
 import java.util.HashMap;
 import java.util.Map;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 
+// class
 public class AudioPlayer {
+	// instance variables
 	public static Map<String, Sound> soundMap = new HashMap<String, Sound>();
 	public static Map<String, Music> musicMap = new HashMap<String, Music>();
 	public static Map<String, Music> narutoMap = new HashMap<String, Music>();
@@ -17,6 +24,7 @@ public class AudioPlayer {
 	public static Map<String, Music> wastedMap = new HashMap<String, Music>();
 	public static Map<String, Music> transitionMap = new HashMap<String, Music>();
 
+	// load sounds
 	public static void load() {
 		try {
 			soundMap.put("sound", new Sound("res/ClickSound.ogg"));
@@ -33,6 +41,7 @@ public class AudioPlayer {
 		}
 	}
 
+	// getters and setters
 	public static Music getMusic(String key) {
 		return musicMap.get(key);
 

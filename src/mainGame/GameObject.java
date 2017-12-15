@@ -1,17 +1,21 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 /**
  * Every object in the game extends this abstract class
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public abstract class GameObject {
 
+	// instance variables
 	// protected means that variables can only be accessed by things that extends
 	// GameObject
 	protected double x, y;
@@ -20,6 +24,7 @@ public abstract class GameObject {
 	protected boolean isMoving;
 	protected int health;
 
+	// constructor
 	public GameObject(double x, double y, ID id) {
 		this.x = x;
 		this.y = y;
@@ -38,6 +43,7 @@ public abstract class GameObject {
 	// non abstract can be accessed via OBJECT.________, does not need to be
 	// implemented, but can be overidden
 
+	// getter and setters
 	public double getX() {
 		return x;
 	}

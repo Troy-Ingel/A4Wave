@@ -1,6 +1,8 @@
+// package
 package mainGame;
 
-import java.awt.Color;
+// imports
+import java.awt.Color; 
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Random;
@@ -8,18 +10,20 @@ import java.util.Random;
 /**
  * A type of enemy in the game
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class EnemyBurst extends GameObject {
-
+	// instance methods
 	private Handler handler;
 	private int timer;
 	private int size;
 	private String side;
 	private Random r = new Random();
 
+	// constructor
 	public EnemyBurst(double x, double y, double velX, double velY, int size, String side, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -53,6 +57,8 @@ public class EnemyBurst extends GameObject {
 
 	}
 
+	// instance variables
+	// tick
 	public void tick() {
 
 		// if (this.y <= 0 || this.y >= Game.HEIGHT - 40) velY *= -1;
@@ -69,6 +75,7 @@ public class EnemyBurst extends GameObject {
 
 	}
 
+	// to set the postion
 	public void setPos() {
 		if (this.side.equals("left")) {
 			this.y = r.nextInt(((Game.HEIGHT - size) - 0) + 1) + 0;
@@ -88,6 +95,7 @@ public class EnemyBurst extends GameObject {
 		}
 	}
 
+	// to set the velocity
 	public void setVel() {
 		if (this.side.equals("left")) {
 			this.velY = 0;
@@ -104,12 +112,14 @@ public class EnemyBurst extends GameObject {
 		}
 	}
 
+	// render
 	public void render(Graphics g) {
 		g.setColor(Color.orange);
 		g.fillRect((int) x, (int) y, this.size, this.size);
 
 	}
 
+	// get bounds - rectangle
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, 200, 200);

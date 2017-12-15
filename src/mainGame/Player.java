@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -7,18 +9,19 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.util.Random;
-
 import mainGame.Game.STATE;
 
 /**
  * The main player in the game
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class Player extends GameObject {
 
+	// instance variables
 	Random r = new Random();
 	Handler handler;
 	private HUD hud;
@@ -28,6 +31,7 @@ public class Player extends GameObject {
 	public static int playerSpeed = 10;
 	public int characterId;
 
+	// constructor
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
 		super(x, y, id);
 		this.handler = handler;
@@ -38,6 +42,9 @@ public class Player extends GameObject {
 		playerHeight = 32;
 	}
 
+	// instance methods
+
+	// tick
 	@Override
 	public void tick() {
 		this.x += velX;
@@ -54,6 +61,7 @@ public class Player extends GameObject {
 
 	}
 
+	// check if dead
 	public void checkIfDead() {
 		if (hud.health <= 0) {// player is dead, game over!
 
@@ -106,22 +114,23 @@ public class Player extends GameObject {
 			}
 			if (tempObject.getId() == ID.PickupHealth) {
 				if (getBounds().intersects(tempObject.getBounds())) {
-				// player gains health when they touch health pickup
-				hud.addHealth();
-				handler.clearPickupHealth();
+					// player gains health when they touch health pickup
+					hud.addHealth();
+					handler.clearPickupHealth();
 				}
 			}
 			if (tempObject.getId() == ID.PickupSpeed) {
 				if (getBounds().intersects(tempObject.getBounds())) {
-				// player gain speed when they touch pickup
-				hud.addBoost();
-				handler.clearPickupSpeed();
+					// player gain speed when they touch pickup
+					hud.addBoost();
+					handler.clearPickupSpeed();
 				}
 			}
 
 		}
 	}
 
+	// render
 	@Override
 	public void render(Graphics g) {
 
@@ -131,32 +140,25 @@ public class Player extends GameObject {
 		g.drawImage(getCharacter(characterId), (int) x, (int) y, playerWidth, playerHeight, null);
 	}
 
+	// get bounds
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, 32, 32);
 	}
 
+	// set damage
 	public void setDamage(int damage) {
 		this.damage = damage;
 	}
 
+	// set player size
 	public void setPlayerSize(int size) {
 		this.playerWidth = size;
 		this.playerHeight = size;
 	}
-	
-	/* 
-	 * Okay, so the issue is that you are calling this method from MouseListener, 
-	 * but this method does not set int c, it returns an image.
-	 * 
-	 * What you want to do is change this method to public Image getCharacter().
-	 * keep the logic the same, and dont forget to update the method call in line 131 to getCharacter()
-	 * 
-	 * Rename the class variable int c to int characterId
-	 * 
-	 * Create a new method called public void setCharacter(int id), which sets characterId = id.
-	 * call this method from the MouseListener. 
-	 * 
+
+	/*
+	 * get character allows different character to be played before game begins
 	 */
 	public Image getCharacter(int characterId) {
 		if (characterId == 1) {
@@ -167,7 +169,7 @@ public class Player extends GameObject {
 			return getImage("images/player3.png");
 		} else if (characterId == 4) {
 			return getImage("images/player4.png");
-		}  else if (characterId == 5) {
+		} else if (characterId == 5) {
 			return getImage("images/player5.png");
 		} else if (characterId == 6) {
 			return getImage("images/player6.png");
@@ -179,12 +181,13 @@ public class Player extends GameObject {
 			return getImage("images/player1.png");
 		}
 	}
-	
+
+	// set character
 	public void setCharacter(int id) {
 		characterId = id;
 	}
 
-	
+	// image
 	public Image getImage(String path) {
 		Image image = null;
 		try {

@@ -1,15 +1,17 @@
+// package
 package mainGame;
 
 /**
  * The upgrades that a user can have (they modify the game for the user)
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// Upgrades
 public class Upgrades {
-	// why isn't this coming up as a change?
 
+	// standard calling
 	private Game game;
 	private Handler handler;
 	private HUD hud;
@@ -19,6 +21,7 @@ public class Upgrades {
 	private UpgradeScreen upgradeScreen;
 	private String ability;
 
+	// constructor
 	public Upgrades(Game game, Handler handler, HUD hud, UpgradeScreen upgradeScreen, Player player, Spawn1to10 spawner,
 			Spawn10to20 spawner2) {
 		this.game = game;
@@ -30,6 +33,9 @@ public class Upgrades {
 		this.spawner2 = spawner2;
 	}
 
+	// instance methods
+
+	// will clear screen
 	public void clearScreenAbility() {
 		handler.clearEnemies();
 		hud.setAbilityUses(hud.getAbilityUses() - 1);
@@ -38,26 +44,32 @@ public class Upgrades {
 		}
 	}
 
+	// will decrease player size
 	public void decreasePlayerSize() {
 		player.setPlayerSize(24);
 	}
 
+	// accounts for extra lives
 	public void extraLife() {
 		hud.setExtraLives(hud.getExtraLives() + 1);
 	}
 
+	// accounts for health increases
 	public void healthIncrease() {
 		hud.healthIncrease();
 	}
 
+	// accounts for health regeneration
 	public void healthRegeneration() {
 		hud.setRegen();
 	}
 
+	// accounts for improved damage resistence
 	public void improvedDamageResistance() {
 		player.setDamage(1);
 	}
 
+	// allows player to skip level
 	public void levelSkipAbility() {
 		handler.clearEnemies();
 		hud.setLevel(hud.getLevel() + 1);
@@ -73,6 +85,7 @@ public class Upgrades {
 
 	}
 
+	// allows player to freeze time
 	public void freezeTimeAbility() {
 		handler.pause();
 		hud.setAbilityUses(hud.getAbilityUses() - 1);
@@ -81,10 +94,12 @@ public class Upgrades {
 		}
 	}
 
+	// speed boost ability
 	public void speedBoost() {
 		Player.playerSpeed *= 2;
 	}
 
+	// get ability
 	public String getAbility() {
 		return ability;
 	}
@@ -124,6 +139,7 @@ public class Upgrades {
 
 	}
 
+	// reset the various upgrades
 	public void resetUpgrades() {
 		Player.playerSpeed = 10;
 		hud.resetHealth();

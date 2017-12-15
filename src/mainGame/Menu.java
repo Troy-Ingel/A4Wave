@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -13,21 +15,20 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.imageio.ImageIO;
-
 import mainGame.Game.STATE;
 
 /**
  * The main menu
  * 
- * @author Brandon Loehle 5/30/16
+ * @author // when the big circle breaks into a bunch of smaller ones
  *
  */
 
+// class
 public class Menu {
-	// why isn't this coming up as a change?
 
+	// instance variables
 	private Game game;
 	private Handler handler;
 	private HUD hud;
@@ -53,6 +54,7 @@ public class Menu {
 	private String[] scores;
 	// public Leaderboard lb;
 
+	// constructor
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		HighscoreManager hm = new HighscoreManager();
 		scores = new String[hm.getScores().size()];
@@ -82,6 +84,9 @@ public class Menu {
 
 	}
 
+	// instance methods
+
+	// add colors
 	public void addColors() {
 		colorPick.add(Color.blue);
 		colorPick.add(Color.white);
@@ -92,6 +97,7 @@ public class Menu {
 		colorPick.add(Color.yellow);
 	}
 
+	// tick
 	public void tick() {
 		timer--;
 		if (timer <= 0) {
@@ -104,6 +110,7 @@ public class Menu {
 		handler.tick();
 	}
 
+	// render
 	public void render(Graphics g) {
 		if (game.gameState == STATE.Menu) {
 			g.drawImage(background, 0, 0, Game.WIDTH, Game.HEIGHT, null);
@@ -200,9 +207,9 @@ public class Menu {
 
 			g.setFont(font3);
 			g.setColor(Color.white);
-			
+
 			int numScoresToShow = Math.min(5, scores.length);
-			
+
 			for (int i = 0; i < numScoresToShow; i++) {
 				g.drawString(scores[i], Game.WIDTH / 2 - getTextWidth(font3, scores[i]) / 2, y); // 1
 				y += 100;
@@ -213,21 +220,19 @@ public class Menu {
 			text9 = "Back";
 			g.drawRect(Game.WIDTH / 2 - getTextWidth(font2, text9), 3 * Game.HEIGHT / 4 + 25, 100, 50);
 			g.drawString(text9, Game.WIDTH / 2 - getTextWidth(font2, text9) / 2, 3 * Game.HEIGHT / 4 + 60);
-		}
-		else if(game.gameState == STATE.Pause) {
+		} else if (game.gameState == STATE.Pause) {
 			g.drawImage(bg, 0, 0, Game.WIDTH, Game.HEIGHT, null);
-			
-			//g.drawRect(0	, 0, game.WIDTH, game.HEIGHT);
-			
-			
+
+			// g.drawRect(0 , 0, game.WIDTH, game.HEIGHT);
 
 			System.out.println("Paused");
 			Font font = new Font("Apple Chancery", 1, 50);
-			g.drawString("Paused", (int)(game.WIDTH / 2 - getTextWidth(font,"Paused")),(int)(game.HEIGHT/2));
+			g.drawString("Paused", (int) (game.WIDTH / 2 - getTextWidth(font, "Paused")), (int) (game.HEIGHT / 2));
 
 		}
 	}
 
+	// get text width
 	public int getTextWidth(Font font, String text) {
 		AffineTransform at = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(at, true, true);

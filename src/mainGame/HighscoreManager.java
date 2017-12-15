@@ -1,9 +1,11 @@
+// package
 package mainGame;
 
-
+// imports
 import java.util.*;
 import java.io.*;
 
+// class
 public class HighscoreManager {
 	// An arraylist of the type "score" we will use to work with the scores
 	// inside the class
@@ -17,27 +19,31 @@ public class HighscoreManager {
 	ObjectInputStream inputStream = null;
 
 	public HighscoreManager() {
-		// initialising the scores-arraylist
+		// initializing the scores-array list
 		scores = new ArrayList<Score>();
 	}
 
+	// get scores
 	public ArrayList<Score> getScores() {
 		loadScoreFile();
 		sort();
 		return scores;
 	}
 
+	// sort scores
 	private void sort() {
 		ScoreComparator comparator = new ScoreComparator();
 		Collections.sort(scores, comparator);
 	}
 
+	// to add score
 	public void addScore(String name, int score) {
 		loadScoreFile();
 		scores.add(new Score(name, score));
 		updateScoreFile();
 	}
 
+	// to load the score file
 	public void loadScoreFile() {
 		try {
 			inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
@@ -60,6 +66,7 @@ public class HighscoreManager {
 		}
 	}
 
+	// to update the score file
 	public void updateScoreFile() {
 		try {
 			outputStream = new ObjectOutputStream(new FileOutputStream(HIGHSCORE_FILE));
@@ -79,8 +86,8 @@ public class HighscoreManager {
 			}
 		}
 	}
-	
 
+	// get high score
 	public String getHighscoreString(int index) {
 		String highscoreString = "";
 		int max = 5;
@@ -88,14 +95,13 @@ public class HighscoreManager {
 		ArrayList<Score> scores;
 		scores = getScores();
 
-		
 		int x = scores.size();
 		if (x > max) {
 			x = max;
-		}	
-		highscoreString += (index + 1) + ".\t" + scores.get(index).getNaam() + "\t\t" + scores.get(index).getScore() + "\n";
-		
-		
+		}
+		highscoreString += (index + 1) + ".\t" + scores.get(index).getNaam() + "\t\t" + scores.get(index).getScore()
+				+ "\n";
+
 		return highscoreString;
 	}
 }

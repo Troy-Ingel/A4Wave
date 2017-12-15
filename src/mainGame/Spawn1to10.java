@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.font.FontRenderContext;
@@ -8,17 +10,18 @@ import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
 import mainGame.Game.STATE;
 
 /**
  * Contains the programming of levels 1-10, as well as handles level progression
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  */
 
+// class
 public class Spawn1to10 {
 
+	// instance variables
 	public static int LEVEL_SET = 1;
 	private Handler handler;
 	private HUD hud;
@@ -27,18 +30,19 @@ public class Spawn1to10 {
 	private int spawnTimer;
 	private int levelTimer;
 	private String[] side = { "left", "right", "top", "bottom" };
-	// int[] arrlevels = new int [11] ;
 
+	// int[] arrlevels = new int [11] ;
 	UnorderedList list = new UnorderedList(11);
+
+	// to remove objects
 	ArrayList<Integer> levels = new ArrayList<Integer>(); // MAKE THIS AN
-	// ARRAY
-	// LIST SO I CAN
-	// REMOVE OBJECTS
+
 	private int index;
 	private int levelsRemaining;
 	private int levelNumber = 0;
 	private int tempCounter = 0;
 
+	// constructor
 	public Spawn1to10(Handler handler, HUD hud, Game game) {
 		this.handler = handler;
 		this.hud = hud;
@@ -60,6 +64,7 @@ public class Spawn1to10 {
 
 	}// end of Spawn1to10
 
+	// instance methods
 	/**
 	 * Pre-load every level
 	 */
@@ -100,7 +105,7 @@ public class Spawn1to10 {
 		 * 
 		 */
 		else if (levelNumber == 1 && list.getItem(0) == 1) {// this is level 1
-			AudioPlayer.getMusic("music").stop();
+			//AudioPlayer.getMusic("music").stop();
 
 			// AudioPlayer.getNaruto("naruto").play();
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
@@ -111,8 +116,8 @@ public class Spawn1to10 {
 									// to how long we want this level to
 									// run for
 				handler.addObject(new LevelText(15, 600, "LEVEL 1", ID.Levels1to10Text));
-				AudioPlayer.load();
-				AudioPlayer.getlevel2("level2").loop();
+				//AudioPlayer.load();
+				//AudioPlayer.getlevel2("level2").loop();
 				;
 				// AudioPlayer.getlevel1("level1").play();
 				// J's level transition text
@@ -157,11 +162,10 @@ public class Spawn1to10 {
 					levelNumber++;
 
 					/*
-					 * levels.remove(index);// remove the current level from
-					 * being // selected levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining);// pick another level at //
-					 * random levelNumber = levels.get(index);// set levelNumber
-					 * to // whatever index was // randomly selected
+					 * levels.remove(index);// remove the current level from being // selected
+					 * levelsRemaining--; index = r.nextInt(levelsRemaining);// pick another level
+					 * at // random levelNumber = levels.get(index);// set levelNumber to //
+					 * whatever index was // randomly selected
 					 */
 				} // end else
 			} // end if
@@ -215,9 +219,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(2);
 					levelNumber++;
@@ -259,9 +262,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(3);
 					levelNumber++;
@@ -302,9 +304,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(4);
 					levelNumber++;
@@ -336,7 +337,7 @@ public class Spawn1to10 {
 			if (levelTimer == 750) {
 				// J makes level 8 transition text disappear
 				handler.clearText();
-				// Evan adds health pickup
+				// Team A4 (Evan) adds health pickup
 				handler.addObject(new PickupHealth(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.PickupHealth,
 						handler));
 			}
@@ -352,9 +353,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(5);
 					levelNumber++;
@@ -400,9 +400,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(6);
 					levelNumber++;
@@ -459,9 +458,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(7);
 					levelNumber++;
@@ -504,9 +502,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(8);
 					levelNumber++;
@@ -546,9 +543,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(9);
 					levelNumber++;
@@ -591,9 +587,8 @@ public class Spawn1to10 {
 				} // end if
 				else {
 					/*
-					 * levels.remove(index); levelsRemaining--; index =
-					 * r.nextInt(levelsRemaining); levelNumber =
-					 * levels.get(index);
+					 * levels.remove(index); levelsRemaining--; index = r.nextInt(levelsRemaining);
+					 * levelNumber = levels.get(index);
 					 */
 					list.getItem(10);
 					levelNumber++;
@@ -637,6 +632,7 @@ public class Spawn1to10 {
 
 	}// end tick()
 
+	// skip level
 	public void skipLevel() {
 		if (levelsRemaining == 1) {
 			tempCounter = 0;
@@ -653,6 +649,7 @@ public class Spawn1to10 {
 		} // end else if
 	}// end skipLevel
 
+	// restart
 	public void restart() {
 		levelNumber = -10;
 		tempCounter = 0;
@@ -663,6 +660,7 @@ public class Spawn1to10 {
 
 	}// end restart()
 
+	// get text width
 	public int getTextWidth(Font font, String text) {
 		AffineTransform at = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(at, true, true);

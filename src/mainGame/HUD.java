@@ -1,19 +1,22 @@
+// package
 package mainGame;
 
-import java.awt.Color;
+// imports
+import java.awt.Color; 
 import java.awt.Font;
 import java.awt.Graphics;
 
 /**
  * The main Heads Up Display of the game
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class HUD {
 	// HUD fixed
-
+	// instance variables
 	public double health = 100;
 	private double healthMax = 100;
 
@@ -34,6 +37,9 @@ public class HUD {
 
 	private int extraLives = 0;
 
+	// methods
+	
+	// tick
 	public void tick() {
 		health = Game.clamp(health, 0, health);
 
@@ -54,6 +60,7 @@ public class HUD {
 
 	}
 
+	// render
 	public void render(Graphics g) {
 		Font font = new Font("Amoebic", 1, 30);
 
@@ -79,6 +86,8 @@ public class HUD {
 		}
 	}
 
+	// getters and setters
+	
 	public void setAbility(String ability) {
 		this.ability = ability;
 	}
@@ -131,6 +140,7 @@ public class HUD {
 		return this.extraLives;
 	}
 
+	// for health increase
 	public void healthIncrease() {
 		doubleHealth = true;
 		healthMax = 200;
@@ -139,6 +149,7 @@ public class HUD {
 		healthBarWidth = 1200;
 	}
 
+	// to reset health
 	public void resetHealth() {
 		doubleHealth = false;
 		healthMax = 100;
@@ -147,10 +158,12 @@ public class HUD {
 		healthBarWidth = 600;
 	}
 
+	// to restore health
 	public void restoreHealth() {
 		this.health = healthMax;
 	}
 
+	// to add health
 	public void addHealth() {
 		if (healthMax == 100) {
 			if (health <= 75) {
@@ -167,6 +180,7 @@ public class HUD {
 		}
 	}
 
+	// to add boost
 	public void addBoost() {
 		Player.playerSpeed = 20;
 	}

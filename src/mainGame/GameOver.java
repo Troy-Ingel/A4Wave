@@ -1,22 +1,25 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.AffineTransform;
-
 import mainGame.Game.STATE;
 
 /**
  * The game over screen
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class GameOver {
 
+	// instance variables
 	private Game game;
 	private Handler handler;
 	private HUD hud;
@@ -25,6 +28,7 @@ public class GameOver {
 	private String text;
 	public Leaderboard lb;
 
+	// constructor
 	public GameOver(Game game, Handler handler, HUD hud) {
 		this.game = game;
 		this.handler = handler;
@@ -33,12 +37,16 @@ public class GameOver {
 		this.retryColor = Color.white;
 	}
 
+	// instance methods
+
+	// tick
 	public void tick() {
 		handler.clearPlayer();
-		flash();
+		//flash();
 
 	}
 
+	// render
 	public void render(Graphics g) {
 		HighscoreManager hm = new HighscoreManager();
 		Font font = new Font("Amoebic", 1, 100);
@@ -55,12 +63,13 @@ public class GameOver {
 		g.setFont(font2);
 		text = "Click anywhere to play again";
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 + 150);
-		AudioPlayer.getwasted("wasted").play();
+		//AudioPlayer.getwasted("wasted").play();
 		// lb.setScore(0, hud.getScore());
 		// hm.addScore("Michael Woo", hud.getScore());
 
 	}
 
+	// flash
 	public void flash() {
 		timer--;
 		if (timer == 45) {
@@ -88,3 +97,4 @@ public class GameOver {
 	}
 
 }
+

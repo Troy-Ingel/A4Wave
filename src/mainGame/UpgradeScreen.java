@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -12,20 +14,20 @@ import java.awt.geom.AffineTransform;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
-
 import mainGame.Game.STATE;
 
 /**
  * After completing a boss, this screen appears. The upgrade stays effective the
- * rest of the game. A user cannot choose the same upgrade twice
+ * rest of the game. A user cannot choose the same upgrade twice.
  * 
- * @author Brandon Loehle 5/30/16
- *
+ * @author @author Team A4 | Last Edit Date: Dec. 11, 2017
  */
 
+// class
 public class UpgradeScreen {
-	// HUD fixed
 
+	// Team A4 note: HUD issue resolved in this code
+	// instance variables, note images are added for the path
 	private Game game;
 	private Handler handler;
 	private HUD hud;
@@ -37,6 +39,9 @@ public class UpgradeScreen {
 	private Random r = new Random();
 	private int index1, index2, index3, tempCounter;
 
+	// instance methods
+
+	// upgrade screen, contructor
 	public UpgradeScreen(Game game, Handler handler, HUD hud) {
 		this.game = game;
 		this.handler = handler;
@@ -47,10 +52,14 @@ public class UpgradeScreen {
 		text = "";
 	}
 
+	// instance methods
+
+	// tick
 	public void tick() {
 
 	}
 
+	// render
 	public void render(Graphics g) {
 		Font font = new Font("Apple Chancery", 75, 50);
 		text = "Select an Upgrade!";
@@ -58,15 +67,15 @@ public class UpgradeScreen {
 		g.setColor(Color.WHITE);
 		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font, text) / 2, 75);
 
-		// All pictures are 750 x 76
-		g.drawImage(getImage(imagePaths.get(index1)), Game.WIDTH/2 - 375, Game.HEIGHT / 4, 750, 76, null);
-		g.drawImage(getImage(imagePaths.get(index2)), Game.WIDTH/2 - 375, Game.HEIGHT / 2, 750, 76, null);
-		g.drawImage(getImage(imagePaths.get(index3)), Game.WIDTH/2 - 375, 3 * Game.HEIGHT / 4, 750, 76, null);
+		// Team A4 note: All pictures are 750 x 76
+		g.drawImage(getImage(imagePaths.get(index1)), Game.WIDTH / 2 - 375, Game.HEIGHT / 4, 750, 76, null);
+		g.drawImage(getImage(imagePaths.get(index2)), Game.WIDTH / 2 - 375, Game.HEIGHT / 2, 750, 76, null);
+		g.drawImage(getImage(imagePaths.get(index3)), Game.WIDTH / 2 - 375, 3 * Game.HEIGHT / 4, 750, 76, null);
 
 	}
 
 	/**
-	 * Reset the paths to each picture
+	 * Reset paths | Reset the paths to each picture
 	 */
 	public void resetPaths() {
 		paths[0] = "images/clearscreenability.png";
@@ -81,20 +90,22 @@ public class UpgradeScreen {
 
 	}
 
+	// add paths
 	public void addPaths() {
 		for (int i = 0; i < 9; i++) {
 			imagePaths.add(paths[i]);
 		}
 	}
 
+	// get the index
 	public int getIndex(int maxIndex) {
 		int index = r.nextInt(maxIndex);
 		return index;
 	}
 
 	/**
-	 * Gets 3 index's of pictures, and ensures that they are all different. These 3
-	 * index's will load 3 different upgrade options for the user
+	 * Set Index: Gets 3 index's of pictures, and ensures that they are all
+	 * different. These 3 index's will load 3 different upgrade options for the user
 	 */
 	public void setIndex() {
 		index1 = getIndex(9);
@@ -114,6 +125,7 @@ public class UpgradeScreen {
 		}
 	}
 
+	// image
 	public Image getImage(String path) {
 		Image image = null;
 		try {
@@ -124,6 +136,7 @@ public class UpgradeScreen {
 		return image;
 	}
 
+	// get the text width
 	public int getTextWidth(Font font, String text) {
 		AffineTransform at = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(at, true, true);
@@ -167,12 +180,15 @@ public class UpgradeScreen {
 		}
 	}
 
+	// mouse pressed
 	public void mousePressed(MouseEvent e) {
 
 	}
 
+	// mouse released
 	public void mouseReleased(MouseEvent e) {
 
 	}
 
 }
+

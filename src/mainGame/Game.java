@@ -13,20 +13,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * Main game class
- * Desc: This class is the driver class and it follows the Holder
- * pattern. It houses references to ALL of the components of the game
+ * Main game class Desc: This class is the driver class and it follows the
+ * Holder pattern. It houses references to ALL of the components of the game
  * 
- * Team A4 Update Nov. 30th, 2017
+ * Team A4 | Last Edit Date: Dec. 11, 2017
  */
 
 // game class, extends canvas
 public class Game extends Canvas implements Runnable {
-	
+
 	// serialVersion
 	private static final long serialVersionUID = 1L;
 
-	// EVAN CHANGES: will first use toolkit to find the screen size, then will
+	// instance variables
+
+	// EVAN (Team A4) CHANGES: will first use toolkit to find the screen size, then
+	// will
 	// set width and height to screen of user
 	private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public static final int WIDTH = (int) screenSize.getWidth(), HEIGHT = (int) screenSize.getHeight();
@@ -57,10 +59,10 @@ public class Game extends Canvas implements Runnable {
 	};
 
 	/**
-	 * Initialize the core mechanics of the game 
+	 * Initialize the core mechanics of the game
 	 */
-	
-	// Game class
+
+	// Game class, constructor
 	public Game() {
 		handler = new Handler();
 		hud = new HUD();
@@ -81,17 +83,18 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	/**
-	 * The thread is simply a programs path of execution. This method ensures
-	 * that this thread starts properly.
+	 * The thread is simply a programs path of execution. This method ensures that
+	 * this thread starts properly.
 	 */
-	
+
 	// Start function
 	public synchronized void start() {
 		thread = new Thread(this);
 		thread.start();
 		running = true;
 	}
-	 // Stop function
+
+	// Stop function
 	public synchronized void stop() {
 		try {
 			thread.join();
@@ -140,14 +143,14 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	/**
-	 * Constantly ticking (60 times per second, used for updating smoothly).
-	 * Used for updating the instance variables (DATA) of each entity (location,
-	 * health, appearance, etc).
+	 * Constantly ticking (60 times per second, used for updating smoothly). Used
+	 * for updating the instance variables (DATA) of each entity (location, health,
+	 * appearance, etc).
 	 */
 	private void tick() {
 		if (gameState == STATE.Game) {// game is running
-			
-			if(!paused) { //Do not pause
+
+			if (!paused) { // Do not pause
 				handler.tick();// ALWAYS TICK HANDLER, NO MATTER IF MENU OR GAME SCREEN
 				hud.tick();
 				if (Spawn1to10.LEVEL_SET == 1) {// user is on levels 1 thru 10,
@@ -180,15 +183,14 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	/**
-	 * Constantly drawing to the many buffer screens of each entity requiring
-	 * the Graphics objects (entities, screens, HUD's, etc).
+	 * Constantly drawing to the many buffer screens of each entity requiring the
+	 * Graphics objects (entities, screens, HUD's, etc).
 	 */
 	private void render() {
 
 		/*
-		 * BufferStrategies are used to prevent screen tearing. In other words,
-		 * this allows for all objects to be redrawn at the same time, and not
-		 * individually
+		 * BufferStrategies are used to prevent screen tearing. In other words, this
+		 * allows for all objects to be redrawn at the same time, and not individually
 		 */
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
@@ -208,7 +210,8 @@ public class Game extends Canvas implements Runnable {
 
 		if (gameState == STATE.Game) {// user is playing game, draw game objects
 			hud.render(g);
-		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard || gameState == STATE.Pause) {// user
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Leaderboard
+				|| gameState == STATE.Pause) {// user
 			// is in
 			// help
 			// or
@@ -238,8 +241,8 @@ public class Game extends Canvas implements Runnable {
 
 	/**
 	 * 
-	 * Constantly checks bounds, makes sure players, enemies, and info doesn't
-	 * leave screen
+	 * Constantly checks bounds, makes sure players, enemies, and info doesn't leave
+	 * screen
 	 * 
 	 * @param var
 	 *            x or y location of entity
@@ -258,11 +261,12 @@ public class Game extends Canvas implements Runnable {
 			return var;
 	}
 
+	// *** the main, RUNS GAME ***
 	public static void main(String[] args) {
 		// HighscoreManager hm = new HighscoreManager();
 		new Game();
 		AudioPlayer.load();
-	//	AudioPlayer.getNaruto("naruto").play();
+		// AudioPlayer.getNaruto("naruto").play();
 		AudioPlayer.getMusic("music").loop();
 
 	}

@@ -1,7 +1,13 @@
+// package
 package mainGame;
+
+// import
 import java.util.Comparator;
 
+// class
 public class ScoreComparator implements Comparator<Score> {
+
+	// compare method
 	public int compare(Score score1, Score score2) {
 
 		int sc1 = score1.getScore();

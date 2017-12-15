@@ -1,5 +1,7 @@
+// package
 package mainGame;
 
+// imports
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -7,16 +9,19 @@ import java.awt.Rectangle;
 /**
  * A type of enemy in the game
  * 
- * @author Brandon Loehle 5/30/16
+ * @author BTeam A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class EnemySmart extends GameObject {
 
+	// instance variables
 	private Handler handler;
 	private GameObject player;
 	private int speed;
 
+	// constructor
 	public EnemySmart(double x, double y, int speed, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -29,6 +34,9 @@ public class EnemySmart extends GameObject {
 
 	}
 
+	// insatnce methods
+	
+	// tick
 	public void tick() {
 		this.x += velX;
 		this.y += velY;
@@ -50,12 +58,14 @@ public class EnemySmart extends GameObject {
 
 	}
 
+	// render
 	public void render(Graphics g) {
 		g.setColor(Color.green);
 		g.fillRect((int) x, (int) y, 16, 16);
 
 	}
 
+	// rectangle - get bounds
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, 16, 16);

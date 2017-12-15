@@ -1,23 +1,24 @@
+// package
 package mainGame;
 
-import java.awt.event.MouseAdapter;
+// imports
+import java.awt.event.MouseAdapter; 
 import java.awt.event.MouseEvent;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import mainGame.Game.STATE;
 
 /**
  * Handles all mouse input
  * 
- * @author Brandon Loehle 5/30/16
+ * @author Team A4 | Last Edit Date: Dec. 11, 2017
  *
  */
 
+// class
 public class MouseListener extends MouseAdapter {
 	// HUD fixed
-
+	// instance variables
 	private Game game;
 	private Handler handler;
 	private HUD hud;
@@ -29,6 +30,7 @@ public class MouseListener extends MouseAdapter {
 	private String upgradeText;
 	// public Leaderboard lb;
 
+	// construcotr
 	public MouseListener(Game game, Handler handler, HUD hud, Spawn1to10 spawner, Spawn10to20 spawner2,
 			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades) {
 		this.game = game;
@@ -40,7 +42,9 @@ public class MouseListener extends MouseAdapter {
 		this.player = player;
 		this.upgrades = upgrades;
 	}
-
+	// instance methods
+	
+	// mouse pressed
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
@@ -110,6 +114,7 @@ public class MouseListener extends MouseAdapter {
 		}
 
 		else if (game.gameState == STATE.Menu) {
+			AudioPlayer.getMusic("music").play();
 			// Waves Button
 			if (mouseOver(mx, my, 100, Game.HEIGHT / 6 - 65, Game.WIDTH - 200, 100)) {
 				AudioPlayer.getSound("sound").play();
@@ -117,7 +122,6 @@ public class MouseListener extends MouseAdapter {
 
 			}
 			// Leaderboard Button
-			// Is this working?
 			else if (mouseOver(mx, my, 100, Game.HEIGHT / 2 - 65, Game.WIDTH - 200, 100)) {
 				// The leaderboard has been clicked
 				AudioPlayer.getSound("sound").play();
